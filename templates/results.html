@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<body style="background-color:white">
+    <div class="preload">
+        <p>Computing results...</p>
+    </div>
+    
+
+
+    
+    <div class="content card-title" style="width:80%; height: 1035px; text-align:center; margin:auto; background-color:white;">
+            
+                    <br/><br/>
+
+                    <div>
+                        <button class="back-button" onclick="history.back()"><span>Go back</span></button>
+                    </div>
+
+                    <br/>
+
+                    <div style="margin-top: 10px; padding: 10px;">
+                        {% if namespace=='GENE_SYMBOL' %}
+                            <drugst-one
+                                id='drugstone-component-id'
+                                groups='{"nodeGroups":{"important":{"type":"gene","color":"#ff881f","font":{"color":"#000000"},"groupName":"Seed","shape":"star"},"gene":{"type":"gene","color":"#4da300","font":{"color":"#f0f0f0"},"groupName":"Discovered target","shape":"circle"},"foundDrug":{"type":"drug","color":"#F12590","font":{"color":"#000000"},"groupName":"Drug","shape":"diamond"}},"edgeGroups":{"default":{"color":"#000000","groupName":"default edge"}}}'
+                                config='{"identifier":"symbol","title":"ROBUST output network", "taskDrugName": "Drug Search", "showLegendNodes": true, "showLegendEdges": true, "showSidebar": "left", "showOverview": true, "legendPos": "left", "legendClass": "legend", "showQuery": true, "showItemSelector": true,"showSimpleAnalysis": false,"showAdvAnalysis": true,"showSelection": true,"showTasks": true,"showNetworkMenu": "right","showLegend": true,"showNetworkMenuButtonExpression": true, "showNetworkMenuButtonScreenshot": true,"showNetworkMenuButtonExportGraphml": true,"showNetworkMenuButtonAdjacentDrugs": true,"showNetworkMenuButtonCenter": true,"showConnectGenes": true,"networkMenuButtonAdjacentDrugsLabel": "Drugs","showNetworkMenuButtonAdjacentDisordersProteins": true,"networkMenuButtonAdjacentDisordersProteinsLabel": "Disorders (protein)","showNetworkMenuButtonAdjacentDisordersDrugs": true,"networkMenuButtonAdjacentDisordersDrugsLabel": "Disorders (drug)","showNetworkMenuButtonAnimation": true,"networkMenuButtonAnimationLabel": "Animation", "autofillEdges": false, "physicsOn": false,"useNedrexLicenced": true,"selfReferences": false, "interactionDrugProtein": "NeDRex", "indicationDrugDisorder": "NeDRex","nodeShadow": true,"edgeShadow": true, "algorithms": {"drug": ["trustrank", "closeness", "degree", "proximity"], "drug-target": ["trustrank", "multisteiner", "keypathwayminer", "degree", "closeness", "betweenness"]}, "associatedProteinDisorder": "NeDRex",                                "nodeGroups":{"important":{"type":"gene","color":"#ff881f","font":{"color":"#000000"},"groupName":"Seed","shape":"star"},"gene":{"type":"gene","color":"#4da300","font":{"color":"#f0f0f0"},"groupName":"Discovered target","shape":"circle"},"foundDrug":{"type":"drug","color":"#F12590","font":{"color":"#000000"},"groupName":"Drug","shape":"diamond"}},"edgeGroups":{"default":{"color":"#000000","groupName":"default edge"}}}'
+                                network="{{api_output_json}}">
+                            </drugst-one>
+                        {% elif namespace=='UNIPROT' %}
+                            <drugst-one
+                                id='drugstone-component-id'
+                                groups='{"nodeGroups":{"important":{"type":"gene","color":"#ff881f","font":{"color":"#000000"},"groupName":"Seed","shape":"star"},"gene":{"type":"gene","color":"#4da300","font":{"color":"#f0f0f0"},"groupName":"Discovered target","shape":"circle"},"foundDrug":{"type":"drug","color":"#F12590","font":{"color":"#000000"},"groupName":"Drug","shape":"diamond"}},"edgeGroups":{"default":{"color":"#000000","groupName":"default edge"}}}'
+                                config='{"identifier":"uniprot","title":"ROBUST output network", "taskDrugName": "Drug Search", "showLegendNodes": true, "showLegendEdges": true, "showSidebar": "left", "showOverview": true, "legendPos": "left", "legendClass": "legend", "showQuery": true, "showItemSelector": true,"showSimpleAnalysis": false,"showAdvAnalysis": true,"showSelection": true,"showTasks": true,"showNetworkMenu": "right","showLegend": true,"showNetworkMenuButtonExpression": true, "showNetworkMenuButtonScreenshot": true,"showNetworkMenuButtonExportGraphml": true,"showNetworkMenuButtonAdjacentDrugs": true,"showNetworkMenuButtonCenter": true,"showConnectGenes": true,"networkMenuButtonAdjacentDrugsLabel": "Drugs","showNetworkMenuButtonAdjacentDisordersProteins": true,"networkMenuButtonAdjacentDisordersProteinsLabel": "Disorders (protein)","showNetworkMenuButtonAdjacentDisordersDrugs": true,"networkMenuButtonAdjacentDisordersDrugsLabel": "Disorders (drug)","showNetworkMenuButtonAnimation": true,"networkMenuButtonAnimationLabel": "Animation", "autofillEdges": false, "physicsOn": false,"useNedrexLicenced": true,"selfReferences": false, "interactionDrugProtein": "NeDRex", "indicationDrugDisorder": "NeDRex","nodeShadow": true,"edgeShadow": true, "algorithms": {"drug": ["trustrank", "closeness", "degree", "proximity"], "drug-target": ["trustrank", "multisteiner", "keypathwayminer", "degree", "closeness", "betweenness"]}, "associatedProteinDisorder": "NeDRex",                                "nodeGroups":{"important":{"type":"gene","color":"#ff881f","font":{"color":"#000000"},"groupName":"Seed","shape":"star"},"gene":{"type":"gene","color":"#4da300","font":{"color":"#f0f0f0"},"groupName":"Discovered target","shape":"circle"},"foundDrug":{"type":"drug","color":"#F12590","font":{"color":"#000000"},"groupName":"Drug","shape":"diamond"}},"edgeGroups":{"default":{"color":"#000000","groupName":"default edge"}}}'
+                                network="{{api_output_json}}">
+                            </drugst-one>
+                        {% elif namespace=='ENTREZ' %}
+                            <drugst-one
+                                id='drugstone-component-id'
+                                groups='{"nodeGroups":{"important":{"type":"gene","color":"#ff881f","font":{"color":"#000000"},"groupName":"Seed","shape":"star"},"gene":{"type":"gene","color":"#4da300","font":{"color":"#f0f0f0"},"groupName":"Discovered target","shape":"circle"},"foundDrug":{"type":"drug","color":"#F12590","font":{"color":"#000000"},"groupName":"Drug","shape":"diamond"}},"edgeGroups":{"default":{"color":"#000000","groupName":"default edge"}}}'
+                                config='{"identifier":"entrez","title":"ROBUST output network", "taskDrugName": "Drug Search", "showLegendNodes": true, "showLegendEdges": true, "showSidebar": "left", "showOverview": true, "legendPos": "left", "legendClass": "legend", "showQuery": true, "showItemSelector": true,"showSimpleAnalysis": false,"showAdvAnalysis": true,"showSelection": true,"showTasks": true,"showNetworkMenu": "right","showLegend": true,"showNetworkMenuButtonExpression": true, "showNetworkMenuButtonScreenshot": true,"showNetworkMenuButtonExportGraphml": true,"showNetworkMenuButtonAdjacentDrugs": true,"showNetworkMenuButtonCenter": true,"showConnectGenes": true,"networkMenuButtonAdjacentDrugsLabel": "Drugs","showNetworkMenuButtonAdjacentDisordersProteins": true,"networkMenuButtonAdjacentDisordersProteinsLabel": "Disorders (protein)","showNetworkMenuButtonAdjacentDisordersDrugs": true,"networkMenuButtonAdjacentDisordersDrugsLabel": "Disorders (drug)","showNetworkMenuButtonAnimation": true,"networkMenuButtonAnimationLabel": "Animation", "autofillEdges": false, "physicsOn": false,"useNedrexLicenced": true,"selfReferences": false, "interactionDrugProtein": "NeDRex", "indicationDrugDisorder": "NeDRex","nodeShadow": true,"edgeShadow": true, "algorithms": {"drug": ["trustrank", "closeness", "degree", "proximity"], "drug-target": ["trustrank", "multisteiner", "keypathwayminer", "degree", "closeness", "betweenness"]}, "associatedProteinDisorder": "NeDRex",                                "nodeGroups":{"important":{"type":"gene","color":"#ff881f","font":{"color":"#000000"},"groupName":"Seed","shape":"star"},"gene":{"type":"gene","color":"#4da300","font":{"color":"#f0f0f0"},"groupName":"Discovered target","shape":"circle"},"foundDrug":{"type":"drug","color":"#F12590","font":{"color":"#000000"},"groupName":"Drug","shape":"diamond"}},"edgeGroups":{"default":{"color":"#000000","groupName":"default edge"}}}'
+                                network="{{api_output_json}}">
+                            </drugst-one>
+                        {% endif %}
+                    </div>
+
+                    <br/><br/><br/>
+
+
+<!--div>
+<p>{#{api_output_json}#}
+<br/>=====================<br/>
+{#{api_output_df}#}
+<br/>======================<br/>
+{#{node_list}#}
+<br/>======================<br/>
+{#{is_seed}#}
+<br/>========================<br/></p>
+</div-->
+
+                    <div>
+                        <!-- <div>
+                            <button class="rerun-button" onclick="history.back()"><span>Re-run ROBUST</span></button>
+                        </div> -->
+                        
+                        <!--h1>Record number: {{record.id}}</h1-->
+                        <div>
+                            <a class="save-results-button" href="/saved_results/{{record.custom_id}}"><span>Save results</span></a>
+                        </div>
+
+
+                        <!--div class="save-results">
+                            <a href="/saved_results/{{record.id}}"><span data-attr="Save results">Save results</span><span data-attr="&#128190;">&#128190;</span></a>
+                        </div-->
+                    </div>
+
+
+
+</div>
+    
+
+    </body>
+
+    <script>
+        $(function() {
+    $(".preload").fadeOut(5000, function() {
+        $(".content").fadeIn(2000);        
+    });
+});
+    </script>
+
+{% endblock %}

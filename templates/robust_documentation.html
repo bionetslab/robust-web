@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<body style="background-color:white">
+
+
+    <div class="card-title" style="text-align:left; padding-left: 50px; padding-right: 60px; width:80%; margin-top:0; margin:auto; background-color:white;">
+    
+
+    <br/>
+            
+                <b id="robust" style="font-size: 1.5rem; padding-top:48px; margin-top:48px; font-size: 30px">ROBUST</b>
+                <div style="text-align: justify; margin-top: 0px; margin-bottom: 0px; font-size: large;"><br/>
+                  <p>
+                    ROBUST performs disease module mining (DMM) via the enumeration of prize collecting Steiner Trees (PCST). Given a graph with non-negative edge costs and node prizes, we try to find a subgraph that connets the given nodes to the nodes with the highest prizes, and including the edges with the highest edge weights. The node prizes are initialized using seeds provided by the user, and are updated with the progression of the algorithm.
+                  </p><br/>
+                  <p>
+                    <i>In mathematical terms:</i> Given a graph \(\mathbf{G=(V,E,c,\boldsymbol{\pi})}\), with non-negative edge costs \(\mathbf{c}\) and node prizes \(\boldsymbol{\pi}\),
+                    the PCST-problem tries to find a tree \(\mathbf{T=(V_T, E_T) \boldsymbol{\subseteq} G}\),
+                    minimizing \(\mathbf{\sum_{uv \boldsymbol{\in} E_T}c(uv)+\sum_{u \boldsymbol{\in} V\setminus V_T}\boldsymbol{\pi}(u)}\).
+                  </p><br/>
+                  <p> 
+                    In ROBUST-Web, we provide the option of running ROBUST using custom or in-built study bias data.
+                    The bias-aware edge weights have been calculated using the following equation:
+                  </p>
+                  <p style="text-align:center;">
+                    \(       \mathbf{       c(uv)=\boldsymbol{\gamma}\cdot\max\{f(u),f(v)\}+(1-\boldsymbol{\gamma})\cdot\frac{\sum_{u^\boldsymbol{\prime} v^\boldsymbol{\prime} \boldsymbol{\in} E}\max\{f(u^\prime),f(v^\prime)\}}{|E|}       }        \),
+                    <br/>
+                    where \(\mathbf{f(u)}\) is the degree of over-representation of protein \(\mathbf{u}\) in PPI networks
+                    <br/>
+                    and, \(\boldsymbol{\gamma}\) is the extent to which study bias data has been leveraged in the calculation of edge weights.
+                    </p><br/>
+                    <p>
+                      Alternatively, when no study bias data is selected, the default version of ROBUST with uniform edge costs is implemented, where \(\mathbf{c(uv)=1}\) for all edges \(\mathbf{uv}\). 
+                    </p><br/>
+                </div>
+
+                <!--------------------------------------->
+
+                <b id="parameters" style="font-size: 1.5rem; padding-top:48px; font-size: 30px">Parameters</b>
+                    <div class="documentation-subheading-level-1"><br/>
+                      <ul>
+                        <li><b>Required parameters</b></li><br/>
+                          <ul>
+                            <!--li><b>seeds:</b> File (.xlsx, .csv or .txt only), or direct textfield upload of list of seeds separated by newline. (Download example seed file here)</li-->
+                            <li><b>seeds:</b> File or direct textfield upload of list of seeds. (Download example seed file here.)</li>
+                          </ul><br/>
+                        
+                        <li><b>Optional parameters</b></li><br/>
+                          <ul>
+                            <li><b>network:</b> Upload your own network; or make use of one of the six in-built PPI networks, namely APID, BioGRID, HPRD and STRING. <i>The BioGRID dataset is pre-selected by default.</i></li><br/>
+                            <li><b>alpha:</b> Initial fraction for ROBUST, type = float, expected range = [0, 1], default: 0.25</li><br/>
+                            <li><b>beta:</b> Reduction factor for ROBUST, type = float, expected range = [0, 1], default: 0.90</i></li><br/>
+                            <li><b>n:</b> # of steiner trees for ROBUST, type = int, expected range = (0, \(\infty\)], default: 30</i></li><br/>
+                            <li><b>tau:</b> Threshold value for ROBUST, type = float, expected range = [0, 1], default: 0.1</li><br/>
+                            <li><b>gamma:</b> Hyperparameter that regulates to what extent study bias data is to be utilized in the calculation of edge weight, type=float, expected range=[0, 1], default: 1.00</i></li><br/>
+                            <li><b>node namespace:</b> Gene/ protein identifier options for study bias data and PPI/ gene network data, type = dropdown select, options: {'Gene symbol', 'UNIPROT protein ID', 'ENTREZ gene ID'}, default: 'Gene symbol'</i></li><br/>
+                            <li><b>correct for study bias:</b> Study bias data used for calculating the edge costs, type = dropdown select, options: {'No', 'Via bait usage', 'Via study attention', 'Via custom'}, default: 'No'</i></li><br/>
+                          </ul>
+                    </div>
+
+
+                    <!--------------------------------------->
+
+
+              <b id="input_specs" style="font-size: 1.5rem; padding-top:48px; font-size: 30px">Input specifications and error codes</b>
+                    <div class="documentation-subheading-level-1"><br/>
+                      <ol>
+                        <li class="sub-list"><b>seeds</b></li>
+                                <ul>
+                                  <li><div class="sub-list">Input specifications:</div>
+                                    <table>
+                                      <tr>
+                                        <th style="text-align:center">File type allowed</th>
+                                        <th style="text-align:center">Data format allowed</th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <ul>
+                                            <li><div class="text-div-imside-table-row">Any text file type (including, but not limited to: .tsv, .csv and .txt).</div></li>
+                                            <li><div class="text-div-imside-table-row">Can also be uploaded manually.</div></li>
+                                          </ul>
+                                        </th>
+                                        <th>
+                                          <ul>
+                                            <li><div class="text-div-imside-table-row">space-separated</div></li>
+                                            <li><div class="text-div-imside-table-row">newline-separated</div></li>
+                                          </ul>
+                                        </th>
+                                      </tr>
+                                    </table>
+                                  </li><br/>
+                                  <li><div class="sub-list">Error codes:</div>
+                                    <table>
+                                      <tr>
+                                        <th style="text-align:center">Use case</th>
+                                        <th style="text-align:center">Error message</th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <div style="padding: 25px;">No seeds uploaded.</div>
+                                        </th>
+                                        <th>
+                                          <div style="padding: 25px;">‘Seeds cannot be empty’</div>
+                                        </th>
+                                      </tr>
+                                    </table>
+                                  </li>
+                                </ul><br/><br/>
+                        
+
+
+
+
+                        <li class="sub-list"><b>network</b></li>
+                                <ul>
+                                  <li><div class="sub-list">Input specifications:</div>
+                                    <table>
+                                      <tr>
+                                        <th style="text-align:center">File type allowed</th>
+                                        <th style="text-align:center">Data format allowed</th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <ul>
+                                            <li><div class="text-div-imside-table-row">Select from in-built: APID, BioGRID, HPRD and STRING.</div></li>
+                                            <li><div class="text-div-imside-table-row">Upload .graphml file</div></li>
+                                            <li><div class="text-div-imside-table-row">Any text file type (including, but not limited to: .tsv, .csv and .txt)</div></li>
+                                            <li><div class="text-div-imside-table-row">Can also be uploaded manually.</div></li>
+                                          </ul>
+                                        </th>
+                                        <th>
+                                          <ul>
+                                            A space-separated edgelist with at least 2 columns, and at least one element in the first two columns (excluding the column header).
+                                          </ul>
+                                        </th>
+                                      </tr>
+                                    </table>
+                                  </li><br/>
+                                  <li><div class="sub-list">Error codes:</div>
+                                    <table>
+                                      <tr>
+                                        <th style="text-align:center">Use case</th>
+                                        <th style="text-align:center">Error message</th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <div style="padding: 25px;">If ‘Upload custom network’ option selected, but no network uploaded.</div>
+                                        </th>
+                                        <th>
+                                          <div style="padding: 25px;">‘Custom network has to be uploaded!’</div>
+                                        </th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <div style="padding: 25px;">If columns with zero elements in the first two columns (excluding header), is uploaded.</div>
+                                        </th>
+                                        <th>
+                                          <div style="padding: 25px;">‘Custom network has to be uploaded!’</div>
+                                        </th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <div style="padding: 25px;">If only one column uploaded.</div>
+                                        </th>
+                                        <th>
+                                          <div style="padding: 25px;">‘Custom network with less than two columns uploaded. Please add two columns.’</div>
+                                        </th>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <div style="padding: 25px;">If 3 or more columns uploaded.</div>
+                                        </th>
+                                        <th>
+                                          <div style="padding: 25px;">No error message: The first two columns retained.</div>
+                                        </th>
+                                      </tr>
+                                    </table>
+                                  </li>
+                                </ul><br/><br/>
+                        <li class="sub-list"><b>study bias data</b></li>
+                          <ul>
+                            <li><div class="sub-list">Input specifications:</div>
+                              <table>
+                                <tr>
+                                  <th style="text-align:center">File type allowed</th>
+                                  <th style="text-align:center">Data format allowed</th>
+                                </tr>
+
+                                <tr>
+                                  <th>
+                                    <ul>
+                                      <li><div class="text-div-imside-table-row">Select from in-built study bias datasets: <span style="font-weight: bold;">Bait usage</span> or <span style="font-weight: bold;">Study attention</span>. Note that the default option <span style="font-weight: bold;">No</span> just runs ROBUST with uniform edge weights (i.e., not making use of any study bias data).</div></li>
+                                      <li><div class="text-div-imside-table-row">Upload file (including, but not limited to: .tsv, .csv and .txt).</div></li>
+                                      <li><div class="text-div-imside-table-row">Can also be uploaded manually.</div></li>
+                                    </ul>
+                                  </th>
+                                  <th>
+                                    <ul>
+                                      <div class="text-div-imside-table-row">At least 2 space-separated columns, and at least one element in the first two columns. The first columns should contain the node name; the second column should contain study bias information pertinent with the node. Note that the second column elements must be of type integer (\(\mathbf{Z}\)).</div>
+                                    </ul>
+                                  </th>
+                                </tr>
+                              </table>
+                            </li><br/>
+                            <li><div class="sub-list">Error codes:</div>
+                              <table>
+                                <tr>
+                                  <th style="text-align:center">Use case</th>
+                                  <th style="text-align:center">Error message</th>
+                                </tr>
+                                <tr>
+                                  <th>
+                                    <div style="padding: 25px;">If ‘CUSTOM’ option selected in ‘Normalize by’ parameter, but no data uploaded.</div>
+                                  </th>
+                                  <th>
+                                    <div style="padding: 25px;">‘Custom study bias data has to be uploaded!’</div>
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th>
+                                    <div style="padding: 25px;">If columns with zero elements in the first two columns (excluding header), is uploaded.</div>
+                                  </th>
+                                  <th>
+                                    <div style="padding: 25px;">‘Custom study bias data has to be uploaded!’</div>
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th>
+                                    <div style="padding: 25px;">If only one column uploaded.</div>
+                                  </th>
+                                  <th>
+                                    <div style="padding: 25px;">‘Custom study bias data with less than two columns uploaded. Please add two columns.’</div>
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th>
+                                    <div style="padding: 25px;">If 3 or more columns uploaded.</div>
+                                  </th>
+                                  <th>
+                                    <div style="padding: 25px;">No error message: The first two columns retained.</div>
+                                  </th>
+                                </tr>
+                              </table>
+                            </li>
+                          </ul>                       
+                      </ol>  
+                    </div>
+                      
+                        <!------------------------------------------------------>
+                      
+                        
+                    </ul>
+                  </div><br/><br/><br/>
+                
+</body>
+{% endblock %}
