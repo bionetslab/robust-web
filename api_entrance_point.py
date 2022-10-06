@@ -3,7 +3,7 @@ import argparse
 import json
 import networkx as nx
 from networkx.readwrite import json_graph
-from robust_dev_branch_GitHub.robust.main import run 
+from robust_bias_aware.robust.main import run 
 import requests, zipfile, io
 import pandas as pd
 import numpy as np

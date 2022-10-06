@@ -1,8 +1,8 @@
 import time
 from time import sleep
 from api_entrance_point import api_entrance_point
-from robust_dev_branch_GitHub.data.study_bias_scores.update_study_bias_scores import update_study_bias_scores
-from robust_dev_branch_GitHub.data.networks.update_networks import update_networks
+from robust_bias_aware.data.study_bias_scores.update_study_bias_scores import update_study_bias_scores
+from robust_bias_aware.data.networks.update_networks import update_networks
 import flask
 from flask import Flask, render_template, request, jsonify, redirect, url_for, Response
 from celery import Celery, uuid
