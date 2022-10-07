@@ -1,5 +1,5 @@
 
-Note: You can run ROBUST-Web by simply navigation to the following url: "https://robust-web.net". If you would like to host ROBUST-Web locally instead, please follow the instructions as specified in the rest of this README.
+Note: You can run ROBUST-Web by simply navigation to https://robust-web.net. If you would like to host ROBUST-Web locally instead, please follow the instructions as specified in the rest of this README.
 
 # Installation
 
