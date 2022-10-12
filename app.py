@@ -391,7 +391,7 @@ def _get_study_bias_data_contents(custom_studybiasdata_input_df, study_bias_scor
     return study_bias_score_data, custom_studybiasdata_input_df
 
 def _initialize_dropdown_params():
-    network=['BioGRID', 'APID', 'HPRD', 'STRING']
+    network=['BioGRID', 'APID', 'STRING']
     namespace=['GENE_SYMBOL', 'UNIPROT', 'ENTREZ']
     study_bias_score=['No','BAIT_USAGE', 'STUDY_ATTENTION', 'CUSTOM']
     return network, namespace, study_bias_score
@@ -441,7 +441,7 @@ def _make_access_link(id):
     return accessLink
 
 def _check_input_network(provided_network):
-    if provided_network in ['BioGRID', 'APID', 'HPRD', 'STRING']:
+    if provided_network in ['BioGRID', 'APID', 'STRING']:
         input_network=provided_network
     else:
         input_network='custom'
