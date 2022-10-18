@@ -1,28 +1,12 @@
-import time
-from time import sleep
 from api_entrance_point import api_entrance_point
 from robust_bias_aware.data.study_bias_scores.update_study_bias_scores import update_study_bias_scores
 from robust_bias_aware.data.networks.update_networks import update_networks
 import flask
-from flask import Flask, render_template, request, jsonify, redirect, url_for, Response
-from celery import Celery, uuid
+from flask import Flask, render_template, request
+from celery import Celery
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import FlaskForm
-from wtforms import SelectField
-import json
 import pandas as pd
-from csv import reader
-import networkx as nx
-from networkx.readwrite import json_graph
-import atexit
-# from apscheduler.scheduler import Scheduler
-import requests, zipfile, io
-import mygene
-from rq import Queue, get_current_job
-from rq.job import Job
-from redis import Redis
 import json
-import os
 import shortuuid
 from flask_apscheduler import APScheduler
 
@@ -457,4 +441,4 @@ if __name__=='__main__':
     scheduler.add_job(id = 'Updation of networks', func=update_networks_scheduled_task, trigger="interval", seconds=30000)
     scheduler.start()
     db.create_all()
-    app.run(debug=True)
+    app.run(debug=False,host='0.0.0.0')
