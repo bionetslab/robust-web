@@ -21,6 +21,7 @@ RUN conda init bash
 
 WORKDIR /usr/src/robust-web
 RUN git clone https://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@github.com/bionetslab/robust-web.git
+RUN git checkout docker
 WORKDIR robust-web
 RUN rm -rf .git
 RUN git clone  https://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@github.com/bionetslab/robust_bias_aware.git
