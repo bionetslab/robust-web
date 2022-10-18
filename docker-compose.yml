@@ -3,7 +3,7 @@ version: '3.3'
 services:
   backend:
     image: robust-web
-    container_name: robust_backend
+    container_name: robust_web
     build: .
     env_file:
       - 'celery.env'
