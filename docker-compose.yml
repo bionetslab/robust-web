@@ -14,7 +14,7 @@ services:
 #      - "-f"
 #      - "/dev/null"
     ports:
-      - 5000:5000
+      - 8041:5000
     depends_on:
       - redis
 #    restart: always
