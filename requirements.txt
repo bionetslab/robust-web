@@ -16,3 +16,4 @@ rq==1.11.1
 seaborn==0.11.2
 shortuuid==1.0.9
 WTForms==3.0.1
+importlib-metadata==4.13.0
