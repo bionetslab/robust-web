@@ -25,6 +25,7 @@ WORKDIR /usr/src/robust-web
 #RUN git checkout docker
 COPY . ./
 RUN rm -rf .git
+RUN rm -rf robust_bias_aware
 RUN git clone  https://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@github.com/bionetslab/robust_bias_aware.git
 RUN rm -rf robust_bias_aware/.git
 
