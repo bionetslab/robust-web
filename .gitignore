@@ -1,7 +1,6 @@
 # GitHub-specific files to be ignored:
 .DS_Store
 .git/
-.gitmodules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
