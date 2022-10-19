@@ -1,3 +1,4 @@
+
 [submodule "robust_bias_aware"]
 	path = robust_bias_aware
-	url = /Users/surya/Documents/GITHUB-REPOSITORIES/FINAL/robust_bias_aware
+	url = https://github.com/bionetslab/robust_bias_aware
