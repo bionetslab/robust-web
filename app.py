@@ -470,6 +470,7 @@ def _make_dict(node_data, edge_data):
 
 def _convert_dict_to_json(outputData_dict):
     OutputData_json = json.dumps(outputData_dict)
+    print(OutputData_json)
     return OutputData_json
 
 
