@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %} {{title}} {% endblock %}
-
 {% block content %}
 
 <style>
@@ -1011,6 +1009,14 @@ ol>li:before {content: counter(item) ". "; counter-increment: item; font-weight:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <body onload="f1()" style="background-color:white">
+    <br/><br/>
+    <div class="mobile_message">
+      <h1 style="text-align: center;">Oops, your screen is too small!</h1><br/>
+      <div class="w3-panel w3-pale-red w3-border" style="text-align: center;">
+          <h4>ROBUST-Web only runs on screens bigger than 768px in width.</h4>
+      </div><br/>
+    </div>
+
     <div class="card-title" style="text-align:left; width:80%; margin-top:0; margin:auto; background-color:white; align-items:center;"><br/>
         
 
@@ -1036,7 +1042,7 @@ ol>li:before {content: counter(item) ". "; counter-increment: item; font-weight:
             <label for="post-2" class="read-more-trigger"></label><br/><br/><br/>
         </div>
         <div class="w3-panel w3-pale-green w3-border" style="text-align: center;">
-            <h4>Still need help? Why not <a target="_blank" href="http://127.0.0.1:5000/robust_about">get in touch</a>?</h4>
+            <h4>Still need help? Why not <a target="_blank" href="{{robust_about_url}}">get in touch</a>?</h4>
         </div>    
                 
                 <br/><br/><br/><br/><br/>
@@ -1048,8 +1054,8 @@ ol>li:before {content: counter(item) ". "; counter-increment: item; font-weight:
     
 
         <div class="goto_RunRobust_div" style="width:80%; margin-top:0; text-align:center; margin:auto;">
-            <!-- <a href="/run_robust" class="btn btn-primary" id="goto_RunRobust">Run ROBUST</a> -->
-            <a href="http://127.0.0.1:5000/">
+            <!--a href="http://127.0.0.1:5000/"-->
+            <a href="{{robust_home_url}}">
                 <input type="submit" class="run-robust-button" value="Re-run ROBUST">
             </a>
         </div>

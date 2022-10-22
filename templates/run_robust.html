@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %} {{title}} {% endblock %}
-
 {% block content %}
 
 <!--First, at the top of the page we need to implement this functionality (only for run_robust):-->
@@ -28,6 +26,13 @@ if (perfEntries[0].type === "back_forward") {
 </script>
 
 <body style="background-color:white">
+  <br/><br/>
+  <div class="mobile_message">
+    <h1 style="text-align: center;">Oops, your screen is too small!</h1><br/>
+    <div class="w3-panel w3-pale-red w3-border" style="text-align: center;">
+        <h4>ROBUST-Web only runs on screens bigger than 768px in width.</h4>
+    </div><br/>
+  </div>
   
 
   {% if error %}

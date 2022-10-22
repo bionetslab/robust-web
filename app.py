@@ -25,11 +25,20 @@ import json
 import os
 import shortuuid
 from flask_apscheduler import APScheduler
+import os
 
 app=Flask(__name__)
 app.config["CELERY_BROKER_URL"] = "redis://localhost:6379"
 celery = Celery(app.name, broker=app.config["CELERY_BROKER_URL"])
 celery.conf.update(app.config)
+####################### Links: #######################
+host_url=os.environ.get('HOST', '127.0.0.1:5000')
+robust_home_url=f'http://{host_url}'
+robust_about_url=f'http://{host_url}/robust_about'
+robust_documentation_url=f'http://{host_url}/robust_documentation'
+run_robust_url=f'http://{host_url}/run_robust'
+######################################################
+
 
 @celery.task()
 def celery_running_task(custom_id, input_dict):
@@ -123,23 +132,19 @@ class Task_Added(db.Model):
 
 @app.route('/', methods=['GET'])
 def index():
-    title_='Home - ROBUST'
-    return render_template('index.html', title=title_)
+    return render_template('index.html')
 
 @app.route('/robust_about', methods=['GET'])
 def robust_about():
-    title_='About - ROBUST'
-    return render_template('robust_about.html', title=title_)
+    return render_template('robust_about.html')
 
 @app.route('/robust_documentation', methods=['GET'])
 def robust_documentation():
-    title_='Documentation - ROBUST'
-    return render_template('robust_documentation.html', title=title_)
+    return render_template('robust_documentation.html')
 
 @app.route('/run_robust', methods=['POST','GET'])
 def run_robust():
-    title_='Run ROBUST'
-    return render_template('run_robust.html', title=title_)
+    return render_template('run_robust.html')
 
 @app.route('/results', methods=['POST', 'GET'])
 def results():
@@ -190,7 +195,7 @@ def retrieve(saved_id):
             custom_id, path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score, study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str=query_Robust_database(retrievedRecord)
             input_network=_check_input_network(provided_network)
             if nodeData_str=="":
-                return render_template('empty_output_returned.html', retrievedRecord=retrievedRecord, input_network=input_network)
+                return render_template('empty_output_returned.html', retrievedRecord=retrievedRecord, input_network=input_network, robust_home_url=robust_home_url, robust_about_url=robust_about_url)
             input_dict=_make_input_dict(path_to_graph,seeds,namespace,alpha,beta,n,tau,study_bias_score,study_bias_score_data,gamma,in_built_network,provided_network,is_graphml)
             _nodes=_convert_comma_separated_str_to_list(nodeData_str)
             src=_convert_comma_separated_str_to_list(edgeDataSrc_str)
@@ -204,7 +209,6 @@ def retrieve(saved_id):
             OutputData_json=_convert_dict_to_json(outputData_dict)
             accessLink=_make_access_link(custom_id)
             input_seeds=_split_data_to_list(seeds)
-            title_="Saved results - ROBUST"
             return render_template('saved_results.html', retrievedRecord=retrievedRecord, input_dict=input_dict, OutputData_json=OutputData_json, namespace=namespace, accessLink=accessLink, input_network=input_network, input_seeds=input_seeds, n=n)
         else:
             return render_template('running_celery_task.html', custom_id=saved_id)
@@ -437,7 +441,8 @@ def _convert_dict_to_json(outputData_dict):
     return OutputData_json
 
 def _make_access_link(id):
-    accessLink='127.0.0.1:5000/saved_results/'+str(id)
+    accessLink=f'{host_url}/saved_results/'+str(id)
+    # accessLink='127.0.0.1:5000/saved_results/'+str(id)
     return accessLink
 
 def _check_input_network(provided_network):
