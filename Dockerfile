@@ -20,21 +20,13 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 RUN conda init bash
 
 WORKDIR /usr/src/robust-web
-#RUN git clone https://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@github.com/bionetslab/robust-web.git
-#WORKDIR /usr/src/robust-web/robust-web
-#RUN git checkout docker
+
 COPY . ./
 RUN rm -rf .git
 RUN rm -rf robust_bias_aware
-RUN git clone  https://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@github.com/bionetslab/robust_bias_aware.git
-RUN rm -rf robust_bias_aware/.git
 
 RUN conda install python=3.7
 
-#COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
-#RUN pip install importlib-metadata==4.13.0
-#COPY celery.sh ./
-#COPY celery.env ./
-#COPY app.py ./
+
 EXPOSE 5000
