@@ -17,7 +17,7 @@ app.config["CELERY_BROKER_URL"] = "redis://localhost:6379"
 celery = Celery(app.name, broker=app.config["CELERY_BROKER_URL"])
 celery.conf.update(app.config)
 ####################### Links: #######################
-host_url = os.environ.get('HOST', '127.0.0.1:5000')
+host_url = os.environ.get('HOST', '0.0.0.0')
 robust_home_url = f'http://{host_url}'
 robust_about_url = f'http://{host_url}/robust_about'
 robust_documentation_url = f'http://{host_url}/robust_documentation'
