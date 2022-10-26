@@ -21,12 +21,13 @@ RUN conda init bash
 
 WORKDIR /usr/src/robust-web
 
+RUN conda install python=3.7
+
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
 COPY . ./
 RUN rm -rf .git
 RUN rm -rf robust_bias_aware
-
-RUN conda install python=3.7
-
-RUN pip install -r requirements.txt
 
 EXPOSE 5000

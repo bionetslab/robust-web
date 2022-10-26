@@ -10,7 +10,7 @@ services:
       - 'celery.env'
     command:
       - "sh"
-      - "celery.sh"
+      - "flask.sh"
     volumes:
       - ../robust_bias_aware:/usr/src/robust-web/robust_bias_aware
     ports:
