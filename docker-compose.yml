@@ -5,43 +5,24 @@ services:
     image: robust-web
     container_name: robust_web
     build: .
+    restart: always
     env_file:
       - 'celery.env'
     command:
       - "sh"
-      - "celery.sh"
-#      - "tail"
-#      - "-f"
-#      - "/dev/null"
+      - "flask.sh"
     volumes:
       - ../robust_bias_aware:/usr/src/robust-web/robust_bias_aware
     ports:
       - 8041:5000
     depends_on:
       - redis
-#    restart: always
-#    ports:
-#      -
-#  frontend:
-#    image: robust-web
-#    container_name: robust_frontend
-#    depends_on:
-#      - backend
-#    restart: always
-#    ports:
-#      - 5000:5000
-#    command:
-#      - "python3"
-#      - "app.py"
+
   redis:
     image: redis
     restart: always
     command: [ "redis-server" ]
     container_name: robust_redis
     hostname: robust_redis
-    ports:
-      - 6379:6379
-#    networks:
-#      - robust_net
-#    depends_on:
-#      - db
+#    ports:
+#      - 6379:6379
