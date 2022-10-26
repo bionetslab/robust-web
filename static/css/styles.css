@@ -1562,3 +1562,67 @@ ol>li:before {content: counter(item) ". "; counter-increment: item; font-weight:
 /*****************************/
 
 #more {display: none;}
+
+/*****************************/
+
+.popover{
+  width: 210px;
+}
+
+.n-popover .popover{
+  width: 230px;
+}
+
+.help-inbuilt-network-dropdown-769-to-860 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-861-to-930 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-931-to-1000 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-1001-to-1150 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-1151-to-1250 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-1251-to-1400 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-1401-to-1550 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-1551-to-1700 .popover{
+  width: 150px;
+}
+
+.help-inbuilt-network-dropdown-1701-to-above .popover{
+  width: 150px;
+}
+
+.study-bias-popover .popover{
+  width: 190px;
+}
+
+.node-namespace-popover .popover{
+  width: 190px;
+}
+
+/*****************************/
+
+
+
+
+
+
+
+

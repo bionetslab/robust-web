@@ -136,7 +136,7 @@ def results():
     if flask.request.method == 'POST':
         custom_id=_generate_custom_id()
         NETWORK, NAMESPACE, STUDY_BIAS_SCORE=_initialize_dropdown_params()
-        study_bias_score_data='No'
+        study_bias_score_data='BAIT_USAGE'
         uploaded_network=''
         namespace, alpha, beta, n, tau, study_bias_score, gamma, path_to_graph, uploaded_network, seeds=_initialize_input_params(NETWORK, NAMESPACE, STUDY_BIAS_SCORE)
         # return str(uploaded_network)
@@ -224,7 +224,7 @@ def _initialize_input_params(NETWORK, NAMESPACE, STUDY_BIAS_SCORE):
     try:
         study_bias_score=STUDY_BIAS_SCORE[int(request.form.get("study_bias_score"))] # dropdown list
     except:
-        study_bias_score='No'  
+        study_bias_score='BAIT_USAGE'  
     try:
         gamma=float(request.form.get('gamma')) # number field
     except:
@@ -447,5 +447,5 @@ if __name__=='__main__':
     scheduler.add_job(id = 'Updation of networks', func=update_networks_scheduled_task, trigger="interval", seconds=30000)
     scheduler.start()
     db.create_all()
-    # app.run(debug=True)
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True)
+    # app.run(debug=False, host='0.0.0.0')
