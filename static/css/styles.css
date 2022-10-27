@@ -1617,6 +1617,16 @@ ol>li:before {content: counter(item) ". "; counter-increment: item; font-weight:
   width: 190px;
 }
 
+.seeds-textbox-help-popover .popover{
+  width: 250px;
+  padding-right: 0px;
+}
+
+.set-seeds-help-popover .popover{
+  width: 230px;
+  padding-right: 0px;
+}
+
 /*****************************/
 
 
