@@ -47,7 +47,7 @@ def celery_running_task(custom_id, input_dict):
                     input_dict["alpha"], input_dict["beta"], input_dict["n"], input_dict["tau"],
                     input_dict["study_bias_score"], input_dict["study_bias_score_data"], input_dict["gamma"],
                     input_dict["in_built_network"], input_dict["provided_network"], input_dict["is_graphml"],
-                    nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str)
+                    nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str, input_dict["param_str"])
     db.session.add(record)
     db.session.commit()
     return "Done!"
@@ -106,10 +106,11 @@ class Robust(db.Model):
     edgeDataSrc_str = db.Column(db.String)
     edgeDataDest_str = db.Column(db.String)
     is_seed_str = db.Column(db.String)
+    parameter_str=db.Column(db.String)
 
     def __init__(self, custom_id, path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score,
                  study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, nodeData_str,
-                 edgeDataSrc_str, edgeDataDest_str, is_seed_str):
+                 edgeDataSrc_str, edgeDataDest_str, is_seed_str, parameter_str):
         self.custom_id = custom_id
         self.path_to_graph = path_to_graph
         self.seeds = seeds
@@ -128,6 +129,7 @@ class Robust(db.Model):
         self.edgeDataSrc_str = edgeDataSrc_str
         self.edgeDataDest_str = edgeDataDest_str
         self.is_seed_str = is_seed_str
+        self.parameter_str=parameter_str
 
 
 class Task_Added(db.Model):
@@ -189,8 +191,20 @@ def results():
                                                                                        custom_studybiasdata_input_df)
         if not error_statement == 'None':
             return render_template('run_robust.html', error=error_statement)
+        
+        seeds_list=split_seeds(seeds)
+        seeds_list_alphabetical=arrange_alphabetical(seeds_list)
+        seeds_str_alphabetical=list_to_str(seeds_list_alphabetical)
+
+        if path_to_graph in ['BioGRID', 'APID', 'STRING'] and study_bias_score in ['No', 'BAIT_USAGE', 'STUDY_ATTENTION']:
+            param_str=path_to_graph+seeds_str_alphabetical+namespace+str(alpha)+str(beta)+str(n)+str(n)+str(tau)+str(study_bias_score)+str(gamma)
+            found_added_task = _is_saved_results(param_str)
+            if not found_added_task==0:
+                # return found_added_task
+                return redirect(f'/saved_results/{found_added_task}')
+
         input_dict = _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score,
-                                      study_bias_score_data, gamma, in_built_network, provided_network, is_graphml)
+                                      study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, param_str)
         celery_running_task.delay(custom_id, input_dict)
         record_taskAdded = Task_Added(custom_id)
         db.session.add(record_taskAdded)
@@ -199,6 +213,21 @@ def results():
     else:
         return render_template('results_get_error.html')
 
+def list_to_str(list_):
+    str_ =" ".join(str(item) for item in list_)
+    # str_ = ' '.join(list_)
+    return str_
+
+
+def split_seeds(seeds):
+    seeds_=str(seeds)
+    seeds_ = seeds_.split()
+    # print(seeds_)
+    return seeds_
+
+def arrange_alphabetical(seeds_list):
+    seeds_list.sort()
+    return seeds_list
 
 @app.route('/saved_results/<int:saved_id>', methods=['POST', 'GET'])
 def retrieve(saved_id):
@@ -211,7 +240,7 @@ def retrieve(saved_id):
                 retrievedRecord = Robust.query.get(done_task.id)
                 found_done_task = 1
         if found_done_task == 1:
-            custom_id, path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score, study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str = query_Robust_database(
+            custom_id, path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score, study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str, parameter_str = query_Robust_database(
                 retrievedRecord)
             input_network = _check_input_network(provided_network)
             if nodeData_str == "":
@@ -219,7 +248,7 @@ def retrieve(saved_id):
                                        input_network=input_network, robust_home_url=robust_home_url,
                                        robust_about_url=robust_about_url)
             input_dict = _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score,
-                                          study_bias_score_data, gamma, in_built_network, provided_network, is_graphml)
+                                          study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, parameter_str)
             _nodes = _convert_comma_separated_str_to_list(nodeData_str)
             src = _convert_comma_separated_str_to_list(edgeDataSrc_str)
             dest = _convert_comma_separated_str_to_list(edgeDataDest_str)
@@ -310,8 +339,16 @@ def query_Robust_database(retrievedRecord):
     edgeDataSrc_str = retrievedRecord.edgeDataSrc_str
     edgeDataDest_str = retrievedRecord.edgeDataDest_str
     is_seed_str = retrievedRecord.is_seed_str
-    return custom_id, path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score, study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str
+    parameter_str = retrievedRecord.parameter_str
+    return custom_id, path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score, study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str, parameter_str
 
+def _is_saved_results(param_str):
+    found_saved_task=0
+    saved_tasks=Robust.query.all()
+    for saved_task in saved_tasks:
+        if str(saved_task.parameter_str)==str(param_str):
+            found_saved_task=saved_task.custom_id
+    return found_saved_task
 
 def _is_added_task(saved_id):
     found_added_task = 0
@@ -349,7 +386,7 @@ def _get_network_contents(is_graphml, in_built_network, ppi_network_contents_df,
 
 
 def _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score, study_bias_score_data,
-                     gamma, in_built_network, provided_network, is_graphml):
+                     gamma, in_built_network, provided_network, is_graphml, param_str):
     input_dict = {
         "path_to_graph": path_to_graph,
         "seeds": seeds,
@@ -363,7 +400,8 @@ def _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study
         "gamma": gamma,
         "in_built_network": in_built_network,
         "provided_network": provided_network,
-        "is_graphml": is_graphml
+        "is_graphml": is_graphml,
+        "param_str": param_str
     }
     return input_dict
 
