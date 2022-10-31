@@ -2,7 +2,7 @@ from api_entrance_point import api_entrance_point
 from robust_bias_aware.data.study_bias_scores.update_study_bias_scores import update_study_bias_scores
 from robust_bias_aware.data.networks.update_networks import update_networks
 import flask
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from celery import Celery
 from flask_sqlalchemy import SQLAlchemy
 import json
@@ -68,11 +68,26 @@ scheduler = APScheduler()
 
 
 def update_study_bias_scores_scheduled_task():
-    update_study_bias_scores()
+    try:
+        update_study_bias_scores()
+        tasks=Robust.query.all()
+        for task in tasks:
+            if 'BAIT_USAGE' in str(task.parameter_str) or 'STUDY_ATTENTION' in str(task.parameter_str):
+                task.delete()
+    except:
+        pass
+
 
 
 def update_networks_scheduled_task():
-    update_networks()
+    try:
+        update_networks()
+        tasks=Robust.query.all()
+        for task in tasks:
+            if 'BioGRID' in str(task.parameter_str) or 'APID' in str(task.parameter_str) or 'STRING' in str(task.parameter_str):
+                task.delete()
+    except:
+        pass
 
 
 # --------------------------------------------------------------
@@ -211,11 +226,10 @@ def results():
         db.session.commit()
         return render_template('running_celery_task.html', custom_id=custom_id)
     else:
-        return render_template('results_get_error.html')
+        return render_template('results_get_error.html', robust_home_url=robust_home_url, robust_about_url=robust_about_url)
 
 def list_to_str(list_):
     str_ =" ".join(str(item) for item in list_)
-    # str_ = ' '.join(list_)
     return str_
 
 
@@ -263,11 +277,11 @@ def retrieve(saved_id):
             input_seeds = _split_data_to_list(seeds)
             return render_template('saved_results.html', retrievedRecord=retrievedRecord, input_dict=input_dict,
                                    OutputData_json=OutputData_json, namespace=namespace, accessLink=accessLink,
-                                   input_network=input_network, input_seeds=input_seeds, n=n)
+                                   input_network=input_network, input_seeds=input_seeds, n=n, run_robust_url=run_robust_url)
         else:
             return render_template('running_celery_task.html', custom_id=saved_id)
     else:
-        return render_template('no_such_task_exists.html', custom_id=saved_id)
+        return render_template('no_such_task_exists.html', custom_id=saved_id, robust_home_url=robust_home_url)
 
 
 def _initialize_input_params(NETWORK, NAMESPACE, STUDY_BIAS_SCORE):
