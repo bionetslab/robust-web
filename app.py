@@ -18,10 +18,10 @@ celery = Celery(app.name, broker=app.config["CELERY_BROKER_URL"])
 celery.conf.update(app.config)
 ####################### Links: #######################
 host_url = os.environ.get('HOST', '127.0.0.1:5000')
-robust_home_url = f'http://{host_url}'
-robust_about_url = f'http://{host_url}/robust_about'
-robust_documentation_url = f'http://{host_url}/robust_documentation'
-run_robust_url = f'http://{host_url}/run_robust'
+# robust_home_url = f'http://{host_url}'
+# robust_about_url = f'http://{host_url}/robust_about'
+# robust_documentation_url = f'http://{host_url}/robust_documentation'
+# run_robust_url = f'http://{host_url}/run_robust'
 
 # host_url = os.environ.get('HOST', '0.0.0.0')
 # robust_home_url = f'https://{host_url}'
@@ -226,7 +226,7 @@ def results():
         db.session.commit()
         return render_template('running_celery_task.html', custom_id=custom_id)
     else:
-        return render_template('results_get_error.html', robust_home_url=robust_home_url, robust_about_url=robust_about_url)
+        return render_template('results_get_error.html')
 
 def list_to_str(list_):
     str_ =" ".join(str(item) for item in list_)
@@ -259,8 +259,7 @@ def retrieve(saved_id):
             input_network = _check_input_network(provided_network)
             if nodeData_str == "":
                 return render_template('empty_output_returned.html', retrievedRecord=retrievedRecord,
-                                       input_network=input_network, robust_home_url=robust_home_url,
-                                       robust_about_url=robust_about_url)
+                                       input_network=input_network)
             input_dict = _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score,
                                           study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, parameter_str)
             _nodes = _convert_comma_separated_str_to_list(nodeData_str)
@@ -277,11 +276,11 @@ def retrieve(saved_id):
             input_seeds = _split_data_to_list(seeds)
             return render_template('saved_results.html', retrievedRecord=retrievedRecord, input_dict=input_dict,
                                    OutputData_json=OutputData_json, namespace=namespace, accessLink=accessLink,
-                                   input_network=input_network, input_seeds=input_seeds, n=n, run_robust_url=run_robust_url)
+                                   input_network=input_network, input_seeds=input_seeds, n=n)
         else:
             return render_template('running_celery_task.html', custom_id=saved_id)
     else:
-        return render_template('no_such_task_exists.html', custom_id=saved_id, robust_home_url=robust_home_url)
+        return render_template('no_such_task_exists.html', custom_id=saved_id)
 
 
 def _initialize_input_params(NETWORK, NAMESPACE, STUDY_BIAS_SCORE):
