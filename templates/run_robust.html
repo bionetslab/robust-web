@@ -45,10 +45,9 @@ if (perfEntries[0].type === "back_forward") {
   <div class="card-title" style="width:80%; margin-top:0; text-align:center; margin:auto; background-color:white;">
 
     <!--------------------------------------------------------------------------- Form: ------------------------------------------------------------------>
-    <br><br><br>
     <form action="/results" method="POST" style="align-items:center;">    <!-- input form begins -->
 
-      <br/>
+      <h2>Select network and seeds</h2><br/><br/><br>
 
       <div  name="horizontal">
         <div>
@@ -306,7 +305,7 @@ if (perfEntries[0].type === "back_forward") {
                                                             </select>
                                                         </div>
                                                         <div class="help-dropdown-input node-namespace-popover">
-                                                          <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="The supported namespaces are: Gene symbol, UNIPROT protein id, ENTREZ gene id, and ENSEMBL. Gene symbol is selected by default.">&#63;</div>
+                                                          <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="The supported namespaces are: Gene symbol, UNIPROT protein id and ENTREZ gene id. Nodes and seeds are expected to be in the same namespace.">&#63;</div>
                                                         </div>
                                                       </div>
                                               </div>
@@ -333,7 +332,7 @@ if (perfEntries[0].type === "back_forward") {
                                                                   </select>
                                                                 </div>
                                                                 <div class="help-dropdown-input study-bias-popover">
-                                                                  <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Select bias aware edge costs for the elimination of hub nodes. Selecting 'No' runs original ROBUST without study bias correction. Bait usage scores are used by default.">&#63;</div>
+                                                                  <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Select bias aware edge costs for the deprioritization of hub nodes. Selecting 'No' runs original ROBUST without study bias correction. Bait usage scores are used by default.">&#63;</div>
                                                                 </div>
                                                               </div>
                                               </div>
@@ -354,7 +353,7 @@ if (perfEntries[0].type === "back_forward") {
                                   </label><br><br>
                                   <textarea id="custom_studybiasdata_contents_textbox upload-custom-study-bias-data-popover" name="custom_studybiasdata_contents_textbox" style="width:300px;height:150px;"></textarea>
                                   <div class="help-upload-network-round-button-dropdown">
-                                    <div class="help-dropdown" data-toggle="tooltip" data-placement="top" title="At least 2 space-separated columns: first columns contains node names; second column contains study bias values.">&#63;</div>
+                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Upload your own bait aware edge weights. Must comprise at least 2 space-separated columns: first columns contains node names; second column contains study bias scores.">&#63;</div>
                                   </div>
                                 </div>
 
