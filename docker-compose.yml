@@ -14,7 +14,7 @@ services:
     volumes:
       - ../robust_bias_aware:/usr/src/robust-web/robust_bias_aware
     ports:
-      - 8041:5000
+      - 8061:5000
     depends_on:
       - redis
 
