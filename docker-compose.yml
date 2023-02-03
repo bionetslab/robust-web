@@ -13,6 +13,7 @@ services:
       - "flask.sh"
     volumes:
       - ../robust_bias_aware:/usr/src/robust-web/robust_bias_aware
+      - ./robust.db:/usr/src/robust-web/robust.db
     ports:
       - 8061:5000
     depends_on:
