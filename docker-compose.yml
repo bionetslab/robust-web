@@ -13,7 +13,7 @@ services:
       - "flask.sh"
     volumes:
       - ../robust_bias_aware:/usr/src/robust-web/robust_bias_aware
-      - ./robust.db:/usr/src/robust-web/robust.db
+      - robust-db-volume:/usr/src/robust-web/db
     ports:
       - 8061:5000
     depends_on:
@@ -25,5 +25,7 @@ services:
     command: [ "redis-server" ]
     container_name: robust_redis
     hostname: robust_redis
+volumes:
+  robust-db-volume:
 #    ports:
 #      - 6379:6379

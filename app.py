@@ -93,7 +93,7 @@ def update_networks_scheduled_task():
 # --------------------------------------------------------------
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///robust.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/robust.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secret'
 
