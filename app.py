@@ -214,9 +214,9 @@ def results():
         if path_to_graph in ['BioGRID', 'APID', 'STRING'] and study_bias_score in ['No', 'BAIT_USAGE', 'STUDY_ATTENTION']:
             param_str=path_to_graph+seeds_str_alphabetical+namespace+str(alpha)+str(beta)+str(n)+str(n)+str(tau)+str(study_bias_score)+str(gamma)
             found_added_task = _is_saved_results(param_str)
-            if not found_added_task==0:
-                # return found_added_task
-                return redirect(f'/saved_results/{found_added_task}')
+            # # if not found_added_task==0:
+                # # # return found_added_task
+                # # return redirect(f'/saved_results/{found_added_task}')
 
         input_dict = _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score,
                                       study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, param_str)
