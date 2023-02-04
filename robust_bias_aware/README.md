@@ -7,13 +7,12 @@ conda activate robust
 conda install numpy matplotlib pandas networkx pip jupyter
 pip install pcst_fast
 ```
-Note that Python 3.7 is a hard requirement!
 
 # Running ROBUST
 
-Navigate to home path '/robust_bias_aware', then you can simply run robust by calling 
+You can simply run robust by calling
 ```bash
-python3 robust.py ./data/data-case-study-2-prec-puberty/prec-pub-seeds.txt prec_puberty.graphml
+python3 robust.py data/data-example1-prec-puberty/BioGRID.txt data/data-example1-prec-puberty/prec-pub-seeds.txt prec_puberty.graphml
 ```
 The positional arguments are:
 ```
@@ -78,4 +77,4 @@ For a large-scale empirical evaluation of ROBUST, please follow the instructions
 # Citing ROBUST
 
 Please cite ROBUST as follows:
-- J. Bernett, D. Krupke, S. Sadegh, J. Baumbach, S. P. Fekete, T. Kacprowski, M. List, D. B. Blumenthal: *Robust disease module mining via enumeration of diverse prize-collecting Steiner trees*, **Bioinformatics 38(6)**, pp. 1600-1606, https://doi.org/10.1093/bioinformatics/btab876.
+- **citation will be added once available**

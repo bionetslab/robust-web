@@ -8,26 +8,36 @@ import os
 def update_networks():
     client = ndex2.client.Ndex2()
 
+    # (1.1) APID Human Interactome:
+    # APID = client.get_network_as_cx_stream('35fcb572-c566-11e8-aaa6-0ac135e8bacf')
+
     # (1.2) APID Human Interactome (only human proteins):
     APID = client.get_network_as_cx_stream('9c38ce6e-c564-11e8-aaa6-0ac135e8bacf')
     APID = ndex2.create_nice_cx_from_raw_cx(json.loads(APID.content))
     APID = APID.to_networkx(mode='default')
+
 
     # (2) BioGRID:
     BioGRID = client.get_network_as_cx_stream('becec556-86d4-11e7-a10d-0ac135e8bacf')
     BioGRID = ndex2.create_nice_cx_from_raw_cx(json.loads(BioGRID.content))
     BioGRID = BioGRID.to_networkx(mode='default')
 
-    # # 'STRING' often throws network errors (especially at line 'ndex2.create_nice_cx_from_raw_cx')-this is an ndex server issue.
-    # # That is why this dataset has been run in try-catch blocks of upto 3 failed attempts.
-    # # If still not updated, will be updated in next scheduled cycle:
+    # HPRD removed because this dataset is no longer maintained.
+    # # (3) HPRD:
+    # HPRD = client.get_network_as_cx_stream('1093e665-86da-11e7-a10d-0ac135e8bacf')
+    # HPRD = ndex2.create_nice_cx_from_raw_cx(json.loads(HPRD.content))
+    # HPRD = HPRD.to_networkx(mode='default')
+
+    # 'STRING' often throws network errors (especially at line 'ndex2.create_nice_cx_from_raw_cx')-this is an ndex server issue.
+    # That is why this dataset has been run in try-catch blocks of upto 3 failed attempts.
+    # If still not updated, will be updated in next scheduled cycle:
 
     # (4) STRING:
     count=0
     status=0
     while count<3:
         try:
-            STRING = client.get_network_as_cx_stream('275bd84e-3d18-11e8-a935-0ac135e8bacf')
+            STRING = client.get_network_as_cx_stream('cfcd4cdb-86da-11e7-a10d-0ac135e8bacf')
             STRING = ndex2.create_nice_cx_from_raw_cx(json.loads(STRING.content))
             STRING = STRING.to_networkx(mode='default')
             status=1
@@ -304,7 +314,7 @@ def update_networks():
 
     BioGRID_ENTREZGENE.to_csv(fullname, sep=' ', index=False)
 
-    ####################################################################### STRING: #######################################################################
+    # ####################################################################### STRING: #######################################################################
 
     nodes_=[]
     node_attributes=[]

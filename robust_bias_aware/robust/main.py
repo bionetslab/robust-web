@@ -71,8 +71,8 @@ def _check_namespace(namespace):
 
 def _get_path_to_study_bias_scores(study_bias_scores, namespace):
     if isinstance(study_bias_scores, pd.DataFrame):
-        study_bias_scores.to_csv(f'./data/study_bias_scores/{namespace}/custom_study_bias_scores.csv', index=False)
-        study_bias_scores=f'./data/study_bias_scores/{namespace}/custom_study_bias_scores.csv'
+        study_bias_scores.to_csv(f'robust_bias_aware/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv', index=False)
+        study_bias_scores=f'robust_bias_aware/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv'
         return study_bias_scores
     else:
         if os.path.exists(study_bias_scores):
@@ -84,7 +84,7 @@ def _get_path_to_study_bias_scores(study_bias_scores, namespace):
         else:
             if study_bias_scores=='None':
                 return study_bias_scores
-    return f'./data/study_bias_scores/{namespace}/{study_bias_scores}.csv'
+    return f'robust_bias_aware/data/study_bias_scores/{namespace}/{study_bias_scores}.csv'
 
 
 def _check_and_preprocess_network(network, namespace):
@@ -96,15 +96,15 @@ def _check_and_preprocess_network(network, namespace):
             is_graphml=1
             network=nx.read_graphml(network)
         elif network in ['BioGRID', 'APID', 'STRING']:
-            network = f'./data/networks/{namespace}/{network}.txt'
+            network = f'robust_bias_aware/data/networks/{namespace}/{network}.txt'
         elif (network.endswith('.txt') or network.endswith('.csv') or network.endswith('.tsv')):
             if not os.path.exists(network):
                 raise ValueError(f'Illegal network type: {network}')
         else:
             raise ValueError(f'Illegal network type: {network}')
     elif isinstance(network, pd.DataFrame):
-        network.to_csv(f'./data/networks/{namespace}_customNetwork.txt', index=False, sep=' ')
-        network=f'./data/networks/{namespace}_customNetwork.txt'
+        network.to_csv(f'robust_bias_aware/data/networks/{namespace}_customNetwork.txt', index=False, sep=' ')
+        network=f'robust_bias_aware/data/networks/{namespace}_customNetwork.txt'
     return network, is_graphml
 
 
