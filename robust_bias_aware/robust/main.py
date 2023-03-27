@@ -62,7 +62,7 @@ def run(seeds, network='BioGRID', namespace='GENE_SYMBOL', alpha=0.25, beta=0.9,
 
 
 def _check_namespace(namespace):
-    if namespace not in ['GENE_SYMBOL', 'ENTREZ', 'UNIPROT']:
+    if namespace not in ['GENE_SYMBOL', 'ENTREZ', 'UNIPROT', 'ENSEMBL']:
         warnings.warn(f'Illegal value {namespace} for parameter "namespace".\n'
                       f'==> Setting parameter "namespace" to "GENE_SYMBOL"')
         namespace = 'GENE_SYMBOL'

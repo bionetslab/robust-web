@@ -47,7 +47,7 @@ Network input options:
 
 [5] --tau TAU						Description: threshold value for ROBUST, type=float, expected range=(0,+inf], default: 0.1
 
-[6] --namespace {'ENTREZ', 'GENE_SYMBOL', 'UNIPROT'}	Description: gene/ protein identifier options for study bias data, type=str, default: 'GENE_SYMBOL'
+[6] --namespace {'ENTREZ', 'GENE_SYMBOL', 'UNIPROT', 'ENSEMBL'}	Description: gene/ protein identifier options for study bias data, type=str, default: 'GENE_SYMBOL'
 
 [7] --study-bias-scores					Description: specify edge weight function used by ROBUST, type=str, default: 'BAIT_USAGE' [read more below]
 

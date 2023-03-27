@@ -11,6 +11,11 @@ import json
 import shortuuid
 from flask_apscheduler import APScheduler
 import os
+import time
+
+########################## SET MODE: ############################################
+mode=1 # Manually set: 0 (runtime testing) or 1 (actually running the app)
+#################################################################################
 
 app = Flask(__name__)
 app.config["CELERY_BROKER_URL"] = "redis://localhost:6379"
@@ -34,7 +39,8 @@ host_url = os.environ.get('HOST', '127.0.0.1:5000')
 
 @celery.task()
 def celery_running_task(custom_id, input_dict):
-    node_list, api_output_df, is_seed = api_entrance_point(input_dict)
+    t0=time.time()
+    node_list, api_output_df, is_seed, robust_run_time = api_entrance_point(input_dict)
     nodeData = node_list
     edgeDataSrc = api_output_df['edge_list_src'].values.tolist()
     edgeDataDest = api_output_df['edge_list_dest'].values.tolist()
@@ -50,7 +56,12 @@ def celery_running_task(custom_id, input_dict):
                     nodeData_str, edgeDataSrc_str, edgeDataDest_str, is_seed_str, input_dict["param_str"])
     db.session.add(record)
     db.session.commit()
-    return "Done!"
+    t1=time.time()
+    total_celery_running_task_time=t1-t0
+    if mode==0:
+        return robust_run_time, total_celery_running_task_time
+    elif mode==1:
+        return "Done!"
 
 
 # Use Cron if Flask-Scheduler doesn't work well on the server:
@@ -220,11 +231,15 @@ def results():
 
         input_dict = _make_input_dict(path_to_graph, seeds, namespace, alpha, beta, n, tau, study_bias_score,
                                       study_bias_score_data, gamma, in_built_network, provided_network, is_graphml, param_str)
-        celery_running_task.delay(custom_id, input_dict)
-        record_taskAdded = Task_Added(custom_id)
-        db.session.add(record_taskAdded)
-        db.session.commit()
-        return render_template('running_celery_task.html', custom_id=custom_id)
+        if mode==1:
+            celery_running_task.delay(custom_id, input_dict)
+            record_taskAdded = Task_Added(custom_id)
+            db.session.add(record_taskAdded)
+            db.session.commit()
+            return render_template('running_celery_task.html', custom_id=custom_id)
+        elif mode==0:
+            robust_run_time, total_celery_running_task_time=celery_running_task(custom_id, input_dict)
+            return str(robust_run_time)
     else:
         return render_template('results_get_error.html')
 
@@ -484,7 +499,7 @@ def _get_study_bias_data_contents(custom_studybiasdata_input_df, study_bias_scor
 
 def _initialize_dropdown_params():
     network = ['BioGRID', 'APID', 'STRING']
-    namespace = ['GENE_SYMBOL', 'UNIPROT', 'ENTREZ']
+    namespace = ['GENE_SYMBOL', 'ENTREZ', 'ENSEMBL', 'UNIPROT']
     study_bias_score = ['No', 'BAIT_USAGE', 'STUDY_ATTENTION', 'CUSTOM']
     return network, namespace, study_bias_score
 

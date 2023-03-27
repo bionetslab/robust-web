@@ -488,10 +488,24 @@ label{
 .help-square-button-dropdown-1701-to-above {
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 830px;
+  top: -15px;
+  left: 20px;
 }
 
+/*******************************************************/
+.help-square-button-dropdown-1701-to-above-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 200px;
+}
+
+.help-square-button-dropdown-1701-to-above-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  right: -565px;
+}
 /*******************************************************/
 
 .help-upload-seeds-round-button-dropdown-769-to-860 {
@@ -786,6 +800,8 @@ display: none;
 
 /*****************************/
 
+
+
   .reset-button {
     border-radius: 10px;
     background-color: #00008B;
@@ -794,10 +810,42 @@ display: none;
     text-align: center;
     font-size: 28px;
     padding: 20px;
-    width: 175px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    align-items: left;
+    position: absolute;
+    top:30%;
+    left: 12.5%;
+    /**width: 120px;**/
+    width: 400px;
+    height: 75px;
+    transform: translateY(-50%);
+    font-size:20px;
+    font-weight: bold;
+  }
+
+  .reset-button-pp {
+    border-radius: 10px;
+    background-color: #00008B;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    align-items: left;
+    position: absolute;
+    top:30%;
+    right: 12.5%;
+    /**width: 120px;**/
+    width: 400px;
+    height: 75px;
+    transform: translateY(-50%);
+    font-size:20px;
+    font-weight: bold;
   }
   
   .reset-button span {
@@ -806,8 +854,24 @@ display: none;
     position: relative;
     transition: 0.5s;
   }
+
+  .reset-button-pp span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
   
-  .reset-button span:after {
+  /* .reset-button span:after {
+    content: '\27F3';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .reset-button-pp span:after {
     content: '\27F3';
     position: absolute;
     opacity: 0;
@@ -817,7 +881,11 @@ display: none;
   }
   
   .reset-button:hover span {
-    padding-right: 25px;
+    padding-right: 0px;
+  }
+
+  .reset-button-pp:hover span {
+    padding-right: 0px;
   }
   
   .reset-button:hover span:after {
@@ -825,10 +893,12 @@ display: none;
     right: 0;
   }
 
-.reset-button{
-  font-size:17px;
-  font-weight: bold;
-}
+  .reset-button-pp:hover span:after {
+    opacity: 1;
+    right: 0;
+  } */
+
+
 
 /*****************************/
 
@@ -845,6 +915,7 @@ display: none;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  font-size:medium;
 }
 .download-button span {
   cursor: pointer;
@@ -871,9 +942,77 @@ display: none;
   right: 0;
 }
 
-.download-button{
-font-size:medium;
+/*****************************/
+
+.download-button-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-size:15px;
+  width: 250px;
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 90px;
+  right: 205px;
 }
+/* .download-button-covid19 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.download-button-covid19 span:after {
+  content: '\2912';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.download-button-covid19:hover span {
+  padding-right: 25px;
+}
+
+.download-button-covid19:hover span:after {
+  opacity: 1;
+  right: 0;
+} */
+
+/********************************************/
+
+.download-button-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-size:15px;
+  width: 250px;
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 90px;
+  left: 175px;
+}
+
+/********************************************/
 
 .upload-button {
   border-radius: 40px;
@@ -1747,6 +1886,33 @@ input[type='checkbox'] {
 .collapsible-content p { 
   margin-bottom: 0; 
 }
+
+/****########################################################################****/
+
+
+.border_{
+  /* style */
+  border: solid;
+  
+  
+  /* width | style */
+  /** border: 2px dotted;
+
+  /* style | color */
+  /** border: outset #f33;
+
+  /* width | style | color */
+  /** border: medium dashed green;
+
+  /* Global values */
+  /** border: inherit;
+  /** border: initial;
+  /** border: revert;
+  /** border: revert-layer;
+  /** border: unset;**/
+}
+
+
 
 
 

@@ -8,10 +8,11 @@ import requests, zipfile, io
 import pandas as pd
 import numpy as np
 import mygene
+import time
 
 def api_entrance_point(input_array):
-    node_list, api_output_df, is_seed=check_input(input_array)
-    return node_list, api_output_df, is_seed
+    node_list, api_output_df, is_seed, robust_run_time=check_input(input_array)
+    return node_list, api_output_df, is_seed, robust_run_time
 
 def check_input(input_array):
     seeds, network, namespace, alpha, beta, n, tau, gamma, study_bias_score, in_built_network, is_graphml=_initialize_params(input_array)
@@ -19,12 +20,15 @@ def check_input(input_array):
     outfile=_set_default_outfile_value()
     provided_network=_process_input_network_contents(in_built_network, is_graphml, input_array)
     n -=1
+    t0 = time.time()
     robust_output_df, robust_output_subgraph=run(seeds, provided_network, namespace, alpha, beta, n, tau, study_bias_score, gamma, outfile)
+    t1 = time.time()
+    robust_run_time = t1-t0
     # Let's call robust_output_subgraph 'G' for easier programming:
     G=robust_output_subgraph
     node_list, is_seed=preprocess_node_data_in_robust_output_subnetwork(G)
     output_data_df=preprocess_edge_data_in_robust_output_subnetwork(G)
-    return node_list, output_data_df, is_seed
+    return node_list, output_data_df, is_seed, robust_run_time
 
 def _initialize_params(input_array):
     seeds=str(input_array["seeds"])

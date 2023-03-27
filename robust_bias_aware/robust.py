@@ -7,7 +7,7 @@ def _get_parser():
     parser.add_argument('seeds', type=str, help='specify path to seeds')
     parser.add_argument('outfile', type=str, help='specify path to outfile')
     parser.add_argument('--network', type=str, help='Specify path to graph or identifier of networks shipped with ROBUST: BioGRID, APID, STRING', default='BioGRID')
-    parser.add_argument('--namespace', type=str, choices=['ENTREZ', 'GENE_SYMBOL', 'UNIPROT'], default='GENE_SYMBOL')
+    parser.add_argument('--namespace', type=str, choices=['ENTREZ', 'GENE_SYMBOL', 'UNIPROT', 'ENSEMBL'], default='GENE_SYMBOL')
     parser.add_argument('--alpha', default=0.25, type=float, help='specify initial fraction, default=0.25')
     parser.add_argument('--beta', default=0.9, type=float, help='specify reduction factor, default=0.9')
     parser.add_argument('--n', default=30, type=int, help='specify no. of steiner trees')
