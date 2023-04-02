@@ -437,74 +437,500 @@ label{
 
 /*****************************************/
 
-.help-square-button-dropdown-769-to-860 {
+.download-button-769-to-860-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 460px;
+  top: 40px;
+  right: -40px;
 }
-.help-square-button-dropdown-861-to-930 {
+.download-button-769-to-860-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 490px;
+  top: 40px;
+  right: 5px;
 }
-.help-square-button-dropdown-931-to-1000 {
+.download-button-861-to-930-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 520px;
+  top: 40px;
+  right: -10px;
 }
-.help-square-button-dropdown-1001-to-1150 {
+.download-button-861-to-930-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 575px;
+  top: 40px;
+  right: 5px;
 }
-.help-square-button-dropdown-1151-to-1250 {
+.download-button-931-to-1000-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 620px;
+  top: 40px;
+  right: 35px;
 }
-.help-square-button-dropdown-1251-to-1400 {
+.download-button-931-to-1000-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 680px;
+  top: 40px;
+  right: -5px;
 }
-.help-square-button-dropdown-1401-to-1550 {
+.download-button-1001-to-1150-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 740px;
+  top: 40px;
+  right: 60px;
 }
-.help-square-button-dropdown-1551-to-1700 {
+.download-button-1001-to-1150-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -50px;
-  left: 800px;
+  top: 40px;
+  right: -35px;
 }
-.help-square-button-dropdown-1701-to-above {
+.download-button-1151-to-1250-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
   position: relative;
   /* Adjust these values accordingly */
-  top: -15px;
-  left: 20px;
+  top: 40px;
+  right: 80px;
+}
+.download-button-1151-to-1250-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: -65px;
+}
+.download-button-1251-to-1400-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: 120px;
+}
+.download-button-1251-to-1400-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: -90px;
+}
+.download-button-1401-to-1550-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: 165px;
+}
+.download-button-1401-to-1550-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: -120px;
 }
 
+.download-button-1551-to-1700-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: 210px;
+}
+.download-button-1551-to-1700-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: -170px;
+}
+
+.download-button-1701-to-above-covid19 {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  /* height: 50px; */
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: 255px;
+}
+
+.download-button-1701-to-above-pp {
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  font-size:14px;
+  width: 150px;
+  font-weight: normal;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 40px;
+  right: -193px;
+}
 /*******************************************************/
-.help-square-button-dropdown-1701-to-above-covid19 {
+
+/*****************************************/
+
+.help-square-button-dropdown-769-to-860-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 240px;
+}
+.help-square-button-dropdown-769-to-860-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 220px;
+}
+.help-square-button-dropdown-861-to-930-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 230px;
+}
+.help-square-button-dropdown-861-to-930-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 240px;
+}
+.help-square-button-dropdown-931-to-1000-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 220px;
+}
+.help-square-button-dropdown-931-to-1000-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 260px;
+}
+.help-square-button-dropdown-1001-to-1150-covid19 {
   position: relative;
   /* Adjust these values accordingly */
   top: -10px;
   left: 200px;
+}
+.help-square-button-dropdown-1001-to-1150-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 300px;
+}
+.help-square-button-dropdown-1151-to-1250-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 160px;
+}
+.help-square-button-dropdown-1151-to-1250-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 330px;
+}
+.help-square-button-dropdown-1251-to-1400-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 140px;
+}
+.help-square-button-dropdown-1251-to-1400-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 370px;
+}
+.help-square-button-dropdown-1401-to-1550-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 110px;
+}
+.help-square-button-dropdown-1401-to-1550-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 405px;
+}
+
+.help-square-button-dropdown-1551-to-1700-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 60px;
+}
+.help-square-button-dropdown-1551-to-1700-pp {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 450px;
+}
+
+.help-square-button-dropdown-1701-to-above-covid19 {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -10px;
+  left: 40px;
 }
 
 .help-square-button-dropdown-1701-to-above-pp {
   position: relative;
   /* Adjust these values accordingly */
   top: -10px;
-  right: -565px;
+  right: -480px;
 }
 /*******************************************************/
 
@@ -809,20 +1235,20 @@ display: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 28px;
-    padding: 20px;
+    /* padding: 20px; */
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    /* margin: 5px; */
     align-items: left;
     position: absolute;
-    top:30%;
-    left: 12.5%;
+    top:25%;
+    left: 10%;
     /**width: 120px;**/
-    width: 400px;
-    height: 75px;
+    width: 200px;
+    height: 60px;
     transform: translateY(-50%);
-    font-size:20px;
-    font-weight: bold;
+    font-size:15px;
+    font-weight: normal;
   }
 
   .reset-button-pp {
@@ -832,23 +1258,23 @@ display: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 28px;
-    padding: 20px;
+    /* padding: 20px; */
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    /* margin: 5px; */
     align-items: left;
     position: absolute;
-    top:30%;
-    right: 12.5%;
+    top:25%;
+    right: 10%;
     /**width: 120px;**/
-    width: 400px;
-    height: 75px;
+    width: 200px;
+    height: 60px;
     transform: translateY(-50%);
-    font-size:20px;
-    font-weight: bold;
+    font-size:15px;
+    font-weight: normal;
   }
   
-  .reset-button span {
+  /* .reset-button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -860,7 +1286,7 @@ display: none;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
+  } */
   
   /* .reset-button span:after {
     content: '\27F3';
@@ -962,7 +1388,7 @@ display: none;
   position: relative;
   /* Adjust these values accordingly */
   top: 90px;
-  right: 205px;
+  right: 121px;
 }
 /* .download-button-covid19 span {
   cursor: pointer;
@@ -1009,7 +1435,7 @@ display: none;
   position: relative;
   /* Adjust these values accordingly */
   top: 90px;
-  left: 175px;
+  left: 120px;
 }
 
 /********************************************/
@@ -1892,7 +2318,11 @@ input[type='checkbox'] {
 
 .border_{
   /* style */
-  border: solid;
+  left: 12%;
+  border:1px solid;
+  height:250px;
+  position:relative;
+  width:75%;
   
   
   /* width | style */
@@ -1911,6 +2341,27 @@ input[type='checkbox'] {
   /** border: revert-layer;
   /** border: unset;**/
 }
+
+/* .border_{
+  border:3px solid;
+  height:250px;
+  position:relative;
+  font-size: 40px;
+} */
+
+.border_ > h1{
+  position:absolute;
+  top:-40px;
+  /*left:50%;*/
+  /*left:500px;*/
+  background:#fff;
+  /*padding:0 0px;*/
+  left:50%;
+  font-size: 20px;
+}
+/* .case_studies_heading_text{
+font-size: 10px;
+} */
 
 
 
