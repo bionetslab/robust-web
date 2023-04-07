@@ -133,3 +133,5 @@ dmypy.json
 .pyre/.idea
 .idea
 robust.db
+.idea/
+.idea/vcs.xml
