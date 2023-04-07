@@ -381,8 +381,7 @@ if (perfEntries[0].type === "back_forward") {
 
 
                                 
-                                <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom" disabled="disabled" class="hidden_div_normalizeBy_custom">     
-                                  
+                                <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom" disabled="disabled" class="hidden_div_normalizeBy_custom">
                                   <label>
                                     <input name="inputfile_studybiasdata" id="inputfile_studybiasdata" type="file" onchange="setfilename_custom(this.value);" style="display:none; width: 0px;"/>
                                     <i class="upload-button"><span>Upload custom</span></i>
@@ -469,180 +468,96 @@ if (perfEntries[0].type === "back_forward") {
                     </div>
             </div>
 </div></div><hr></div>
-<!--/details-->
 
-  <!--p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p-->
+<br/>
 
-<!------------------------------------->
+<div class="field-wrapper">
+  <div class="horizontal">
+        
+              <div class="vertical">
+                              <div>
+                                <label class="dropdown-div-use-case-study" for="normalize">Use case study data</label>
+                              </div>
+                              <div class="param-class">
+                                <div>
+                                  <select class="optional-params-dropdown-style" id="use_case_study_data" aria-describedby="normalize" placeholder="normalize" name="use_case_study_data" onchange="reset_values_case_study(); showDiv2('hidden_div_normalizeBy_custom2', 'hidden_div_normalizeBy_custom3', this)">
+                                    <option value="" selected>Choose one (optional)</option>
+                                    <option value="COVID-19">COVID-19</option>
+                                    <option value="Precocious puberty">Precocious puberty</option>
+                                  </select>
+                                </div>
+                                <!--div class="help-dropdown-input study-bias-popover">
+                                  <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Select positive real numbers as bias aware edge costs for the deprioritization of hub nodes. Bait usage scores are used by default.">&#63;</div>
+                                </div-->
+                              </div>
 
-<br/><br/><br/>
+                              
+                              <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom2" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
+                                <label>
+                                  <!-- <input name="inputfile_studybiasdata" id="inputfile_studybiasdata" type="file" onchange="setfilename_custom(this.value);" style="display:none; width: 0px;"/> -->
+                                  <a href="https://drive.google.com/file/d/1aom0aQfMPFg5gI73FOO6ZOaztZYQQhgK/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study-data-button"><span>Download case study data</span></a>
+                                </label>
+                              </div>
 
-<div class='border_'><h1>Case studies</h1>
+                              <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom3" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
+                                <label>
+                                  <!-- <input name="inputfile_studybiasdata" id="inputfile_studybiasdata" type="file" onchange="setfilename_custom(this.value);" style="display:none; width: 0px;"/> -->
+                                  <a href="https://drive.google.com/file/d/1yyjXqutJCUNEMQ_szQhI3yxAfGZ6ar6v/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study-data-button"><span>Download case study data</span></a>
+                                </label>
+                              </div>
 
-<br/><br/><br/>
 
-<div class="horizontal">
+<!--a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" download="example-input-data.zip" target="_blank">Download COVID-19 data</a>
+<a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" download="example-input-data.zip" target="_blank">Download PP data</a-->
 
-          <div>
-                <div  name="horizontal">
-                      <div>
-                        <button id="reset_with_default_values" type="button" class="reset_with_default_values reset-button" onclick="resetValues()"><span>COVID-19</span></button>
-                      </div>
-                      <div class="help-square-button-dropdown-769-to-860-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
 
-                      <div class="help-square-button-dropdown-861-to-930-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
+              </div>
 
-                      <div class="help-square-button-dropdown-931-to-1000-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-
-                      <div class="help-square-button-dropdown-1001-to-1150-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-
-                      <div class="help-square-button-dropdown-1151-to-1250-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-
-                      <div class="help-square-button-dropdown-1251-to-1400-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-
-                      <div class="help-square-button-dropdown-1401-to-1550-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-
-                      <div class="help-square-button-dropdown-1551-to-1700-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-                      <div class="help-square-button-dropdown-1701-to-above-covid19 set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                      </div>
-                </div>
-                
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-769-to-860-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-861-to-930-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-931-to-1000-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-1001-to-1150-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-1151-to-1250-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-1251-to-1400-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-1401-to-1550-covid19" target="blank_">Download data</a>
-                </div>
-
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-1551-to-1700-covid19" target="blank_">Download data</a>
-                </div>
-                <div>
-                  <a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" class="download-button-1701-to-above-covid19" target="blank_">Download data</a>
-                </div>
-          </div>
-
-          <div>
-                    <div  name="horizontal">
-                            <div>
-                              <button id="reset_with_default_values_pp" type="button" class="reset_with_default_values reset-button-pp" onclick="resetValues_pp()"><span>PP</span></button>
-                            </div>
-                            <div class="help-square-button-dropdown-769-to-860-pp set-seeds-help-popover">
-                              <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-861-to-930-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-931-to-1000-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-1001-to-1150-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-1151-to-1250-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-1251-to-1400-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-1401-to-1550-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-
-                            <div class="help-square-button-dropdown-1551-to-1700-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for COVID-19.">&#63;</div>
-                            </div>
-                            <div class="help-square-button-dropdown-1701-to-above-pp set-seeds-help-popover">
-                                    <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Set default seeds for precocious puberty.">&#63;</div>
-                            </div>
-                    </div>
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-769-to-860-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-861-to-930-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-931-to-1000-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-1001-to-1150-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-1151-to-1250-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-1251-to-1400-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-1401-to-1550-pp" target="blank_">Download data</a>
-                    </div>
-    
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-1551-to-1700-pp" target="blank_">Download data</a>
-                    </div>
-                    <div>
-                      <a href="https://drive.google.com/file/d/1gnxg5vgMUCC-3kUTw46y-Lg0SHgIjbA4/view?usp=sharing" class="download-button-1701-to-above-pp" target="blank_">Download data</a>
-                    </div>
-                    <!--div>
-                      <a href="" class="download-button-pp" target="blank_">Download example data</a-->
-                      <!--button id="download-covid19-data" type="button" class="download-button-covid19"><span>Download example data</span></button-->
-                    <!--/div-->
-          </div>
-
+  </div>
 </div>
 
-</div>
+
+<script>
+  function reset_values_case_study(){
+    var dropdown = document.getElementById("use_case_study_data");
+    var selection = dropdown.value;
+    console.log(selection);
+    var emailTextBox = document.getElementById("textbox_seeds");
+    emailTextBox.value = selection;
+
+    if (selection=='COVID-19') {
+            document.getElementById("alpha").value=0.25;
+            document.getElementById("alpha_slider").value=0.25;
+            document.getElementById("beta").value=0.9;
+            document.getElementById("beta_slider").value=0.9;
+            document.getElementById("n").value=30;
+            document.getElementById("tau").value=0.1;
+            document.getElementById("tau_slider").value=0.1;
+            document.getElementById("gamma").value=1.00;
+            document.getElementById("gamma_slider").value=1.00;
+            document.getElementById("textbox_seeds").value = 'TLR4 NLRP3 MBL2 IL6 IL1RN IL1B CX3CR1 CCR5 AGT ACE F2';
+            document.getElementById("selectOne_NodeNamespace").value = 0
+            document.getElementById("selectOne_Normalize").value=1
+            document.getElementById("inbuilt_network_selection").value=0
+} else {
+            document.getElementById("alpha").value=0.25;
+            document.getElementById("alpha_slider").value=0.25;
+            document.getElementById("beta").value=0.9;
+            document.getElementById("beta_slider").value=0.9;
+            document.getElementById("n").value=30;
+            document.getElementById("tau").value=0.1;
+            document.getElementById("tau_slider").value=0.1;
+            document.getElementById("gamma").value=1.00;
+            document.getElementById("gamma_slider").value=1.00;
+            document.getElementById("textbox_seeds").value = 'P63092 P35354 P01229 P01148 Q5JWF2 P84996 O95467 P05019';
+            document.getElementById("selectOne_NodeNamespace").value = 3
+            document.getElementById("selectOne_Normalize").value=1
+            document.getElementById("inbuilt_network_selection").value=0
+}
+            
+
+  }
+</script>
 
 <style>
 .border_{
@@ -662,14 +577,14 @@ if (perfEntries[0].type === "back_forward") {
   }
 </style>
 
-<!------------------------------------->
-<br><br><br><br>
-
-<input id='myButton' type="submit" class="run-robust-button" value="Run ROBUST">
 
 <!------------------------------------->
 
-<br><br><br><br>
+
+<br/><br/>
+<div class="run-robust-div">
+  <input id='myButton' type="submit" class="run-robust-button" value="Run ROBUST">
+</div>
 
 </form>
 
@@ -726,6 +641,12 @@ function showDiv(divId, element)
     document.getElementById(divId).style.display = element.value == 3 ? 'block' : 'none';
 }
 
+function showDiv2(divId1, divId2, element)
+{
+    document.getElementById(divId1).style.display = element.value == 'COVID-19' ? 'block' : 'none';
+    document.getElementById(divId2).style.display = element.value == 'Precocious puberty' ? 'block' : 'none';
+}
+
 /* Upload custom study bias data: */
 document.getElementById('inputfile_studybiasdata')
                         .addEventListener('change', function() { 
@@ -737,44 +658,7 @@ document.getElementById('inputfile_studybiasdata')
                         fr.readAsText(this.files[0]);
                     })
 
-/* 'Reset (run with default settings/ parameters)' button: */
-$("#reset_with_default_values").on("click", function () {
-    $('#selectOne_NodeNamespace option').prop('selected', function() {
-        return this.defaultSelected;
-    });
-});
 
-$("#reset_with_default_values").on("click", function () {
-    $('#selectOne_EdgeCost option').prop('selected', function() {
-        return this.defaultSelected;
-    });
-});
-
-$("#reset_with_default_values").on("click", function () {
-    $('#selectOne_Normalize option').prop('selected', function() {
-        return this.defaultSelected;
-    });
-});
-
-
-/* 'Reset (run with default settings/ parameters)' button: */
-$("#reset_with_default_values_pp").on("click", function () {
-    $('#selectOne_NodeNamespace option').prop('selected', function() {
-        return 1;
-    });
-});
-
-$("#reset_with_default_values_pp").on("click", function () {
-    $('#selectOne_EdgeCost option').prop('selected', function() {
-        return this.defaultSelected;
-    });
-});
-
-$("#reset_with_default_values_pp").on("click", function () {
-    $('#selectOne_Normalize option').prop('selected', function() {
-        return this.defaultSelected;
-    });
-});
 
 function resetValues(){
             document.getElementById("alpha").value=0.25;
@@ -803,22 +687,7 @@ function resetValues_pp(){
 }
 
 
-/* Hide 'NormalizeBy Custom hidden div' on unclick of : 'Run with custom settings/ data' button: */
-$(function () {
-        $("#custom_settings_checkbox").click(function () {
-            if ($(this).is(":checked")) {
-            } else {
-                $("#hidden_div_normalizeBy_custom").hide();
-            }
-        });
-    });
 
-
-/* Regular expression controlling input pattern: */
-// var validate = function(e) {
-//           var t = e.value;
-//           e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-//       }
 $(document).on('keydown', 'input[pattern]', function(e){
   var input = $(this);
   var oldVal = input.val();
@@ -910,10 +779,6 @@ $('[data-toggle="popover"]').popover();
 
 <input type='text' id='myValue' hidden/>
 <!-- <button id='myButton'>Enqueue</button> -->
-
-<div class="progress">
-  <div id='myProgress' class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
 
 <p id='result'></p>
 

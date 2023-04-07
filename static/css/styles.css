@@ -1154,7 +1154,7 @@ display: none;
 }
 
 .hidden_div_normalizeBy_custom.custom-file-upload{
-  border: 1px solid #ccc;
+    border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
@@ -1580,6 +1580,8 @@ font-weight: bold;
 
 .run-robust-button {
   background-color: #00008B;
+  background-position: center;
+  transition: background 0.8s;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -1593,13 +1595,10 @@ font-weight: bold;
   font-weight: bold;
 }
 
-.run-robust-button {
-  background-position: center;
-  transition: background 0.8s;
-}
 .run-robust-button:hover {
   background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
 }
+
 .run-robust-button:active {
   background-color: #6eb9f7;
   background-size: 100%;
@@ -2363,8 +2362,36 @@ input[type='checkbox'] {
 font-size: 10px;
 } */
 
+/****************************************************************/
 
+.download-case-study-data-button {
+  position:relative;
+  border-radius: 40px;
+  background-color: #00008B;
+  border: none;
+  color: #FFFFFF;
+  font-style:normal;
+  text-align: center;
+  /* font-size: 28px; */
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
 
+.download-case-study-data-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+/* .download-case-study-data-button{
+font-size:small;
+} */
 
 
 
