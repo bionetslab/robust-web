@@ -127,6 +127,85 @@ if (perfEntries[0].type === "back_forward") {
           }
       });
   });
+
+
+
+
+
+
+
+
+
+  
+
+  function download_values_case_study(){
+    var dropdown = document.getElementById("download_case_study_data");
+    var selection = dropdown.value;
+    // console.log(selection);
+    // var emailTextBox = document.getElementById("textbox_seeds");
+    // emailTextBox.value = selection;
+
+    //var btn = document.querySelector('#select');
+
+    if (selection=='COVID-19') {
+              // $("#hidden_div_normalizeBy_custom2").trigger('click')
+            document.getElementById("hidden_div_normalizeBy_custom2")[0].click();
+            // document.getElementById("hidden_div_normalizeBy_custom2").click();
+              // $("#hidden_div_normalizeBy_custom2").selected();
+            // document.getElementById("alpha").value=0.25;
+            // document.getElementById("alpha_slider").value=0.25;
+            // document.getElementById("beta").value=0.9;
+            // document.getElementById("beta_slider").value=0.9;
+            // document.getElementById("n").value=30;
+            // document.getElementById("tau").value=0.1;
+            // document.getElementById("tau_slider").value=0.1;
+            // document.getElementById("gamma").value=1.00;
+            // document.getElementById("gamma_slider").value=1.00;
+            // document.getElementById("textbox_seeds").value = 'TLR4 NLRP3 MBL2 IL6 IL1RN IL1B CX3CR1 CCR5 AGT ACE F2';
+            // document.getElementById("selectOne_NodeNamespace").value = 0
+            // document.getElementById("selectOne_Normalize").value=1
+            // document.getElementById("inbuilt_network_selection").value=0
+} else {
+            document.getElementById("alpha").value=0.25;
+            document.getElementById("alpha_slider").value=0.25;
+            document.getElementById("beta").value=0.9;
+            document.getElementById("beta_slider").value=0.9;
+            document.getElementById("n").value=30;
+            document.getElementById("tau").value=0.1;
+            document.getElementById("tau_slider").value=0.1;
+            document.getElementById("gamma").value=1.00;
+            document.getElementById("gamma_slider").value=1.00;
+            document.getElementById("textbox_seeds").value = 'P63092 P35354 P01229 P01148 Q5JWF2 P84996 O95467 P05019';
+            document.getElementById("selectOne_NodeNamespace").value = 3
+            document.getElementById("selectOne_Normalize").value=1
+            document.getElementById("inbuilt_network_selection").value=0
+}
+            
+
+  }
+
+
+
+
+
+
+
+
+
+  document.getElementById('download_case_study_data').addEventListener('click', function(){
+  if(this.checked)
+    document.getElementById('hidden_div_normalizeBy_custom2').click();
+});
+
+
+
+
+
+
+
+
+
+
             </script>
 
 
@@ -513,36 +592,87 @@ if (perfEntries[0].type === "back_forward") {
   <div class="horizontal">
         
               <div class="vertical">
-                              <div>
-                                <label class="dropdown-div-use-case-study" for="normalize">Use case study data</label>
-                              </div>
-                              <div class="param-class">
-                                <div>
-                                  <select class="optional-params-dropdown-style" id="use_case_study_data" aria-describedby="normalize" placeholder="normalize" name="use_case_study_data" onchange="reset_values_case_study(); showDiv2('hidden_div_normalizeBy_custom2', 'hidden_div_normalizeBy_custom3', this)">
-                                    <option value="" selected>Choose one (optional)</option>
-                                    <option value="COVID-19">COVID-19</option>
-                                    <option value="Precocious puberty">Precocious puberty</option>
-                                  </select>
+    <div>
+      
+                              
+                              <div class="param-class horizontal">
+                                
+                                <div class="vertical">
+                                  <div>
+                                    <label class="dropdown-div-use-case-study" for="normalize">Use case study data</label>
+                                  </div>
+                                  <div>
+                                    <!--select class="optional-params-dropdown-style" id="use_case_study_data" aria-describedby="normalize" placeholder="normalize" name="use_case_study_data" onchange="reset_values_case_study(); showDiv2('hidden_div_normalizeBy_custom2', 'hidden_div_normalizeBy_custom3', this)"-->
+                                    <select class="optional-params-dropdown-style" id="use_case_study_data" aria-describedby="normalize" placeholder="normalize" name="use_case_study_data" onchange="reset_values_case_study();">
+                                      <option value="" selected>Choose one (optional)</option>
+                                      <option value="COVID-19">COVID-19</option>
+                                      <option value="Precocious puberty">Precocious puberty</option>
+                                    </select>
+                                  </div>
                                 </div>
-                                <!--div class="help-dropdown-input study-bias-popover">
-                                  <div class="help-dropdown" data-toggle="popover" data-placement="top" data-content="Select positive real numbers as bias aware edge costs for the deprioritization of hub nodes. Bait usage scores are used by default.">&#63;</div>
-                                </div-->
+
+                                <div class="help-dropdown-input study-bias-popover">
+                                  <div class="help-dropdown-case-study" data-toggle="popover" data-placement="top" data-content="Select case study data to reproduce results reported in the ROBUST-Web paper. The two built-in case studies are: COVID-19 and precocious puberty.">&#63;</div>
+                                </div>
                               </div>
+        
+
+
+
+<div class="horizontal">
+                <div>
+                              
+                              <div class="param-class horizontal">
+
+                                      <div class="vertical"> 
+                                          <div>
+                                            <label class="dropdown-div-use-case-study" for="normalize">Download case study data</label>
+                                          </div>
+                                          <div>
+                                            <!--select class="optional-params-dropdown-style" id="use_case_study_data" aria-describedby="normalize" placeholder="normalize" name="use_case_study_data" onchange="reset_values_case_study(); showDiv2('hidden_div_normalizeBy_custom2', 'hidden_div_normalizeBy_custom3', this)"-->
+                                            <select class="optional-params-dropdown-style" id="download_case_study_data" aria-describedby="normalize" placeholder="normalize" name="use_case_study_data" onchange="showDiv2('hidden_div_normalizeBy_custom2', 'hidden_div_normalizeBy_custom3', this)">
+                                              <option value="" selected>Choose one (optional)</option>
+                                              <option value="COVID-19">COVID-19</option>
+                                              <option value="Precocious puberty">Precocious puberty</option>
+                                            </select>
+                                          </div>
+                                      </div>
+
+                                <div class="help-dropdown-input study-bias-popover">
+                                  <div class="help-dropdown-case-study" data-toggle="popover" data-placement="top" data-content="Download input data and parameters used for the results reported in the ROBUST-Web paper. Data and settings for COVID-19 and precocious puberty are available for download.">&#63;</div>
+                                </div>
+                              </div>
+                </div>
+                <div>
+                  <!--div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom2" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
+                    <label>
+                      <a href="https://drive.google.com/file/d/1aom0aQfMPFg5gI73FOO6ZOaztZYQQhgK/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study-data-button"><span>Download</span></a>
+                    </label>
+                  </div>
+
+                  <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom3" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
+                    <label>
+                      <a href="https://drive.google.com/file/d/1yyjXqutJCUNEMQ_szQhI3yxAfGZ6ar6v/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study-data-button"><span>Download</span></a>
+                    </label>
+                  </div-->
+                  <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom2" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
+                    <label>
+                      <a href="https://drive.google.com/file/d/1aom0aQfMPFg5gI73FOO6ZOaztZYQQhgK/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study"><span>&#xA71C;</span></a>
+                    </label>
+                  </div>
+
+                  <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom3" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
+                    <label>
+                      <a href="https://drive.google.com/file/d/1yyjXqutJCUNEMQ_szQhI3yxAfGZ6ar6v/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study"><span>&#xA71C;</span></a>
+                    </label>
+                  </div>
+                
+                </div>
+</div>
+      </div>
 
                               
-                              <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom2" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
-                                <label>
-                                  <!-- <input name="inputfile_studybiasdata" id="inputfile_studybiasdata" type="file" onchange="setfilename_custom(this.value);" style="display:none; width: 0px;"/> -->
-                                  <a href="https://drive.google.com/file/d/1aom0aQfMPFg5gI73FOO6ZOaztZYQQhgK/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study-data-button"><span>Download case study data</span></a>
-                                </label>
-                              </div>
-
-                              <div name="hidden_div_normalizeBy_custom" id="hidden_div_normalizeBy_custom3" disabled="disabled" class="hidden_div_normalizeBy_custom" style="display:none;">
-                                <label>
-                                  <!-- <input name="inputfile_studybiasdata" id="inputfile_studybiasdata" type="file" onchange="setfilename_custom(this.value);" style="display:none; width: 0px;"/> -->
-                                  <a href="https://drive.google.com/file/d/1yyjXqutJCUNEMQ_szQhI3yxAfGZ6ar6v/view?usp=sharing" download="example-input-data.zip" target="_blank" class="download-case-study-data-button"><span>Download case study data</span></a>
-                                </label>
-                              </div>
+                              
 
 
 <!--a href="https://drive.google.com/file/d/1a0StI9mRpXuOgQnfYMXZtPBY0oCbfsDa/view?usp=sharing" download="example-input-data.zip" target="_blank">Download COVID-19 data</a>
@@ -577,7 +707,7 @@ if (perfEntries[0].type === "back_forward") {
             document.getElementById("selectOne_NodeNamespace").value = 0
             document.getElementById("selectOne_Normalize").value=1
             document.getElementById("inbuilt_network_selection").value=0
-} else {
+} else if (selection=='Precocious puberty') {
             document.getElementById("alpha").value=0.25;
             document.getElementById("alpha_slider").value=0.25;
             document.getElementById("beta").value=0.9;

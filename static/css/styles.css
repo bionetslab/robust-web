@@ -1004,13 +1004,6 @@ label{
   left: 830px;
 }
 
-.help-dropdown {
-  position: relative;
-  /* Adjust these values accordingly */
-  top: -40px;
-  left: -30px;
-}
-
 .help-number-input {
   position: relative;
   /* Adjust these values accordingly */
@@ -1857,6 +1850,15 @@ textarea {
   user-select: none;
 }
 
+.help-dropdown {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -40px;
+  left: -30px;
+}
+
+/***************************************************************************************/
+
 .tooltip-inner {
     max-width: 350px;
     /* If max-width does not work, try using width instead */
@@ -2372,9 +2374,9 @@ font-size: 10px;
   color: #FFFFFF;
   font-style:normal;
   text-align: center;
-  /* font-size: 28px; */
+  font-size: 10px;
   padding: 20px;
-  width: 250px;
+  width: 50px;
   transition: all 0.5s;
   cursor: pointer;
   /* margin: 5px; */
@@ -2393,9 +2395,71 @@ font-size: 10px;
 font-size:small;
 } */
 
+/******************************************************************/
 
+/* .dropdown-div-use-case-study{
+  right:100px;
+} */
 
+/***************************************************************/
 
+.download-case-study {
+  position: relative;
+  font-style: normal;
+  background-color: #00008B;
+  color: white;
+  border: none;
+  font-size: 26px;
+  text-align: center;
+  /* font-weight: bold; */
+  height: 30px;
+  width: 30px;
+  box-shadow: 0 2px 4px #00008B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  top: 0px;
+  right: 40px;
+}
 
+.download-case-study {
+  border-radius: 70%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+/***************************************************************/
+
+.help-dropdown-case-study {
+  font-style: normal;
+  background-color: #FF4500;
+  color: white;
+  border: none;
+  padding: 1px;
+  font-size: 16px;
+  /* font-weight: bold; */
+  height: 25px;
+  width: 25px;
+  box-shadow: 0 2px 4px #9C3F1E;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.help-dropdown-case-study {
+  border-radius: 70%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.help-dropdown-case-study {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: -80px;
+  left: 120px;
+}
+
+/***************************************************************/
 
