@@ -3,7 +3,7 @@
 
 Simply type 'redis-server' on the terminal.
 
-Redis runs on port 6379 by default; I have not edited the port number.
+Redis runs on port 6379 by default.
 
 2. Then start celery server:
 
