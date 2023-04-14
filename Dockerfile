@@ -11,7 +11,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 RUN apt-get install --fix-missing -y supervisor nginx libgtk-3-dev wget ssh git build-essential
 
-RUN #mkdir ~/.ssh/
+RUN mkdir -p ~/.ssh/
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 WORKDIR /usr/src/robust-web
