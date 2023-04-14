@@ -1,4 +1,4 @@
-FROM andimajore/miniconda3_kinetic
+FROM andimajore/miniconda3_lunar
 WORKDIR /usr/src/robust-web/
 
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -11,12 +11,12 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 RUN apt-get install --fix-missing -y supervisor nginx libgtk-3-dev wget ssh git build-essential
 
-RUN mkdir ~/.ssh/
+RUN #mkdir ~/.ssh/
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 WORKDIR /usr/src/robust-web
 
-RUN conda install python=3.7
+RUN conda install python=3.8
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
