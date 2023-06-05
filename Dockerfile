@@ -1,4 +1,4 @@
-FROM andimajore/miniconda3_lunar
+FROM andimajore/miniconda3_mantic
 WORKDIR /usr/src/robust-web/
 
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -20,6 +20,8 @@ RUN conda install python=3.8
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
+
+RUN pip install pyOpenSSL==23.2.0 cryptography==41.0.0
 
 COPY . ./
 RUN rm -rf .git
