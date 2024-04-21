@@ -45,5 +45,5 @@ We can change the port that the Flask app is running on by changing "app.run()" 
 
 # Citing ROBUST-Web
 
-Please cite ROBUST-Web as follows:
+Please cite ROBUST-Web as follows:\n
 *Sarkar, Suryadipto, et al.*, **Online bias-aware disease module mining with ROBUST-Web**, Bioinformatics 39.6 (2023): btad345.
