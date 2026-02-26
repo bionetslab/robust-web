@@ -43,10 +43,12 @@ RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 WORKDIR /usr/src/robust-web
 
-RUN conda install python=3.8
+RUN mamba install python=3.8
+RUN pip install poetry poetry-plugin-export
 
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
+COPY pyproject.toml poetry.lock ./
+RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . ./
 RUN rm -rf .git
