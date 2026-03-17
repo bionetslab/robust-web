@@ -43,7 +43,7 @@ RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 WORKDIR /usr/src/robust-web
 
-RUN mamba install python=3.8
+RUN mamba install python=3.10
 RUN pip install poetry poetry-plugin-export
 
 COPY pyproject.toml poetry.lock ./

@@ -28,7 +28,7 @@ shortuuid="1.0.9"
 WTForms="3.0.1"
 importlib-metadata="4.13.0"
 cryptography="^46.0.5"
-pyOpenSSL="25.3.0"
+pyOpenSSL="^26.0.0"
 
 [tool.poetry.dev-dependencies]
 
